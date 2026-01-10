@@ -38,10 +38,9 @@
 <body class="font-sans text-gray-700 bg-gray-50 antialiased">
 
     <!-- ========================================= -->
-    <!-- VIEW: LANDING PAGE (Publik) -->
+    <!-- VIEW: LANDING PAGE -->
     <!-- ========================================= -->
     <div id="landing-view">
-        <!-- NAVBAR -->
         <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white py-4 shadow-sm">
             <div class="container mx-auto px-6 flex justify-between items-center">
                 <a href="#" onclick="switchView('landing')" class="flex items-center gap-2 group">
@@ -63,7 +62,6 @@
             </div>
         </nav>
 
-        <!-- HERO SECTION -->
         <section id="beranda" class="hero-pattern min-h-screen flex items-center text-white pt-20">
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
@@ -72,13 +70,13 @@
                     <p class="text-lg text-gray-200 max-w-lg">Cek saldo, ajukan pinjaman, dan akses dokumen resmi koperasi secara mudah dan transparan.</p>
                     <div class="flex gap-4 pt-4">
                         <button onclick="switchModal(null, 'registerModal')" class="bg-brand-gold text-brand-dark px-8 py-3 rounded-full font-bold hover:bg-yellow-400 shadow-lg transition transform hover:scale-105">Daftar Akun</button>
-                        <button onclick="switchView('download')" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-brand-blue transition">Download Dokumen</button>
+                        <button onclick="switchView('download')" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-brand-blue transition shadow-md">Download Dokumen</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- LAYANAN SECTION (KEMBALI DIMUNCULKAN) -->
+        <!-- LAYANAN SECTION -->
         <section id="layanan" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -86,7 +84,6 @@
                     <div class="w-20 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Card 1 -->
                     <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-transparent hover:border-brand-blue transition-all group">
                         <div class="w-16 h-16 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
                             <i class="fas fa-money-bill-wave"></i>
@@ -94,7 +91,6 @@
                         <h4 class="text-xl font-bold text-gray-800 mb-3">Simpan Pinjam</h4>
                         <p class="text-sm text-gray-500 leading-relaxed">Simpanan aman dengan bagi hasil (nisbah) kompetitif dan fasilitas pinjaman dengan proses cepat.</p>
                     </div>
-                    <!-- Card 2 -->
                     <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-transparent hover:border-brand-blue transition-all group">
                         <div class="w-16 h-16 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-green-600 group-hover:text-white transition">
                             <i class="fas fa-shopping-basket"></i>
@@ -102,13 +98,12 @@
                         <h4 class="text-xl font-bold text-gray-800 mb-3">Wasera Mart</h4>
                         <p class="text-sm text-gray-500 leading-relaxed">Belanja berbagai kebutuhan pokok (sembako) dan barang elektronik dengan sistem pembayaran potong gaji.</p>
                     </div>
-                    <!-- Card 3 -->
                     <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-transparent hover:border-brand-blue transition-all group">
                         <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-orange-600 group-hover:text-white transition">
                             <i class="fas fa-trowel-bricks"></i>
                         </div>
                         <h4 class="text-xl font-bold text-gray-800 mb-3">Produk Mortar</h4>
-                        <p class="text-sm text-gray-500 leading-relaxed">Penyediaan produk Mortar Indonesia berkualitas dari perusahaan untuk kebutuhan renovasi rumah anggota.</p>
+                        <p class="text-sm text-gray-500 leading-relaxed">Penyediaan produk Mortar Indonesia berkualitas untuk kebutuhan renovasi rumah anggota.</p>
                     </div>
                 </div>
             </div>
@@ -229,7 +224,7 @@
                     <h3 class="font-bold text-gray-800"><i class="fas fa-users mr-2"></i>Manajemen Saldo Anggota</h3>
                     <div class="flex gap-2">
                         <input type="text" id="admin-search" onkeyup="filterMembers()" placeholder="Cari Nama/NIK..." class="border rounded px-3 py-1 text-sm outline-none focus:border-brand-blue">
-                        <button onclick="loadAllMembers()" class="text-brand-blue hover:scale-110 transition"><i class="fas fa-sync"></i></button>
+                        <button onclick="loadAllMembers()" class="text-brand-blue hover:rotate-180 transition-transform duration-500"><i class="fas fa-sync"></i></button>
                     </div>
                 </div>
                 <div class="overflow-x-auto">
@@ -245,30 +240,48 @@
             </div>
 
             <!-- TAB: UPLOAD & PENGUMUMAN -->
-            <div id="admin-tab-upload" class="hidden grid md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-xl shadow-sm p-6">
-                    <h3 class="font-bold text-gray-800 mb-4 border-b pb-2"><i class="fas fa-file-pdf mr-2 text-red-500"></i>Upload PDF</h3>
-                    <form onsubmit="submitUploadFile(event)" class="space-y-4">
-                        <input type="text" name="filename" required placeholder="Judul File" class="w-full border rounded p-2 text-sm">
-                        <input type="text" name="description" placeholder="Deskripsi Singkat" class="w-full border rounded p-2 text-sm">
-                        <input type="file" id="file-upload-input" accept="application/pdf" required class="w-full text-sm">
-                        <button type="submit" id="btn-upload" class="w-full bg-brand-blue text-white py-2 rounded font-bold">Mulai Upload</button>
-                    </form>
+            <div id="admin-tab-upload" class="hidden space-y-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Form Upload -->
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="font-bold text-gray-800 mb-4 border-b pb-2"><i class="fas fa-file-pdf mr-2 text-red-500"></i>Upload Dokumen Baru</h3>
+                        <form onsubmit="submitUploadFile(event)" class="space-y-4">
+                            <input type="text" name="filename" required placeholder="Judul File (Misal: Laporan RAT)" class="w-full border rounded p-2 text-sm">
+                            <input type="text" name="description" placeholder="Deskripsi Singkat" class="w-full border rounded p-2 text-sm">
+                            <input type="file" id="file-upload-input" accept="application/pdf" required class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                            <button type="submit" id="btn-upload" class="w-full bg-brand-blue text-white py-2 rounded font-bold hover:bg-brand-dark transition shadow-md">Mulai Upload</button>
+                        </form>
+                    </div>
+                    <!-- Form Pengumuman -->
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="font-bold text-gray-800 mb-4 border-b pb-2"><i class="fas fa-bullhorn mr-2 text-brand-gold"></i>Buat Pengumuman</h3>
+                        <form onsubmit="submitAnnouncement(event)" class="space-y-4">
+                            <input type="text" name="judul" required placeholder="Judul Informasi" class="w-full border rounded p-2 text-sm">
+                            <textarea name="isi" required rows="4" placeholder="Isi pesan informasi..." class="w-full border rounded p-2 text-sm"></textarea>
+                            <button type="submit" id="btn-announce" class="w-full bg-green-600 text-white py-2 rounded font-bold hover:bg-green-700 transition">Terbitkan</button>
+                        </form>
+                    </div>
                 </div>
+
+                <!-- DAFTAR FILE TERUNGGAH (DI ADMIN) -->
                 <div class="bg-white rounded-xl shadow-sm p-6">
-                    <h3 class="font-bold text-gray-800 mb-4 border-b pb-2"><i class="fas fa-bullhorn mr-2 text-brand-gold"></i>Buat Pengumuman</h3>
-                    <form onsubmit="submitAnnouncement(event)" class="space-y-4">
-                        <input type="text" name="judul" required placeholder="Judul Informasi" class="w-full border rounded p-2 text-sm">
-                        <textarea name="isi" required rows="4" placeholder="Isi pesan informasi..." class="w-full border rounded p-2 text-sm"></textarea>
-                        <button type="submit" id="btn-announce" class="w-full bg-green-600 text-white py-2 rounded font-bold transition hover:bg-green-700">Terbitkan</button>
-                    </form>
+                    <h3 class="font-bold text-gray-800 mb-4 border-b pb-2"><i class="fas fa-list mr-2 text-brand-blue"></i>Daftar Dokumen yang Sudah Terbit</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-gray-500">
+                            <thead class="bg-gray-50 text-gray-700 uppercase text-xs">
+                                <tr><th class="px-4 py-2">Nama File</th><th class="px-4 py-2">Deskripsi</th><th class="px-4 py-2 text-center">Status</th><th class="px-4 py-2 text-center">Tautan</th></tr>
+                            </thead>
+                            <tbody id="admin-file-list">
+                                <tr><td colspan="4" class="text-center py-4">Memuat daftar file...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
 
     <!-- MODALS -->
-    <!-- LOGIN MODAL -->
     <div id="loginModal" class="fixed inset-0 z-[100] hidden">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleModal('loginModal')"></div>
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-full max-w-md rounded-2xl p-8 modal-animate shadow-2xl">
@@ -282,7 +295,6 @@
         </div>
     </div>
 
-    <!-- REGISTER MODAL -->
     <div id="registerModal" class="fixed inset-0 z-[100] hidden">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleModal('registerModal')"></div>
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-full max-w-lg rounded-2xl p-8 modal-animate overflow-y-auto max-h-[90vh] shadow-2xl">
@@ -303,7 +315,6 @@
         </div>
     </div>
 
-    <!-- UPDATE MEMBER MODAL (ADMIN ONLY) -->
     <div id="editMemberModal" class="fixed inset-0 z-[100] hidden">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleModal('editMemberModal')"></div>
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-full max-w-md rounded-2xl p-8 modal-animate shadow-2xl">
@@ -326,7 +337,6 @@
         // ==========================================
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzOsFJH6BsletXntHuri2SvMfk5Lcx3c1alGCeO_FD_QwwflTChiMKipo-m3NfJg6zU/exec"; 
 
-        // State Global
         let allMembersData = [];
         const formatIDR = (n) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(n);
         function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); }
@@ -344,6 +354,7 @@
             document.getElementById('admin-tab-members').classList.add('hidden');
             document.getElementById('admin-tab-upload').classList.add('hidden');
             document.getElementById('admin-tab-' + tab).classList.remove('hidden');
+            if (tab === 'upload') loadPublicContent(); 
         }
 
         function doLogout() {
@@ -352,42 +363,69 @@
             }); 
         }
 
-        // --- FETCH CONTENT (DOWNLOADS & ANNOUNCEMENTS) ---
         function loadPublicContent() {
             const data = new URLSearchParams(); data.append('action', 'get_content');
             fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
                 if(res.result === 'success') {
                     // Render Announcements
                     const annList = document.getElementById('public-announcement-list');
-                    annList.innerHTML = res.announcements.length ? res.announcements.map(a => `
-                        <div class="bg-white p-6 rounded-xl shadow border-l-4 border-brand-gold hover:shadow-lg transition">
-                            <span class="text-xs text-gray-400">${new Date(a.date).toLocaleDateString()}</span>
-                            <h4 class="font-bold text-lg text-brand-dark mt-1">${a.title}</h4>
-                            <p class="text-sm text-gray-600 mt-2 line-clamp-3">${a.content}</p>
-                        </div>
-                    `).join('') : '<div class="col-span-full text-center text-gray-400">Belum ada pengumuman.</div>';
+                    if (annList) {
+                        annList.innerHTML = (res.announcements && res.announcements.length) ? res.announcements.map(a => `
+                            <div class="bg-white p-6 rounded-xl shadow border-l-4 border-brand-gold hover:shadow-lg transition">
+                                <span class="text-xs text-gray-400">${new Date(a.date).toLocaleDateString()}</span>
+                                <h4 class="font-bold text-lg text-brand-dark mt-1">${a.title}</h4>
+                                <p class="text-sm text-gray-600 mt-2 line-clamp-3">${a.content}</p>
+                            </div>
+                        `).join('') : '<div class="col-span-full text-center text-gray-400">Belum ada pengumuman.</div>';
+                    }
 
                     // Render Downloads
                     const downList = document.getElementById('public-download-list');
-                    downList.innerHTML = res.downloads.length ? res.downloads.map(d => `
-                        <li class="flex items-center justify-between p-5 hover:bg-gray-50 transition text-left">
-                            <div class="flex items-center gap-4">
-                                <div class="bg-red-100 text-red-600 p-3 rounded"><i class="fas fa-file-pdf text-xl"></i></div>
-                                <div><h5 class="font-bold text-gray-800 text-sm md:text-base">${d.name}</h5><p class="text-xs text-gray-500">${d.desc}</p></div>
-                            </div>
-                            <a href="${d.link}" target="_blank" class="bg-brand-blue text-white px-4 py-2 rounded-lg text-xs md:text-sm font-bold shadow hover:bg-brand-dark transition"><i class="fas fa-download mr-1"></i> Unduh</a>
-                        </li>
-                    `).join('') : '<li class="p-6 text-center text-gray-400">Belum ada file dokumen.</li>';
+                    if (downList) {
+                        downList.innerHTML = (res.downloads && res.downloads.length) ? res.downloads.map(d => `
+                            <li class="flex items-center justify-between p-5 hover:bg-gray-50 transition text-left text-sm md:text-base">
+                                <div class="flex items-center gap-4">
+                                    <div class="bg-red-100 text-red-600 p-3 rounded"><i class="fas fa-file-pdf text-xl"></i></div>
+                                    <div><h5 class="font-bold text-gray-800">${d.name}</h5><p class="text-xs text-gray-500">${d.desc}</p></div>
+                                </div>
+                                <a href="${d.link}" target="_blank" class="bg-brand-blue text-white px-4 py-2 rounded-lg text-xs font-bold shadow hover:bg-brand-dark transition"><i class="fas fa-download mr-1"></i> Unduh</a>
+                            </li>
+                        `).join('') : '<li class="p-6 text-center text-gray-400">Belum ada file dokumen.</li>';
+                    }
+
+                    // Admin File Table
+                    const adminFileList = document.getElementById('admin-file-list');
+                    if (adminFileList) {
+                        adminFileList.innerHTML = (res.downloads && res.downloads.length) ? res.downloads.map(d => `
+                            <tr class="border-b hover:bg-gray-50 text-xs">
+                                <td class="px-4 py-3 font-bold">${d.name}</td>
+                                <td class="px-4 py-3">${d.desc}</td>
+                                <td class="px-4 py-3 text-center"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-[10px]">TERBIT</span></td>
+                                <td class="px-4 py-3 text-center"><a href="${d.link}" target="_blank" class="text-blue-600 hover:underline"><i class="fas fa-external-link-alt"></i></a></td>
+                            </tr>
+                        `).join('') : '<tr><td colspan="4" class="text-center py-4">Belum ada file terupload.</td></tr>';
+                    }
                 }
-            });
+            }).catch(err => console.error("Error loading content:", err));
         }
 
-        // --- UPLOAD & ANNOUNCEMENT SUBMIT ---
         function submitUploadFile(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-upload');
-            const file = document.getElementById('file-upload-input').files[0];
+            const fileInput = document.getElementById('file-upload-input');
+            const file = fileInput.files[0];
             if (!file) return;
+
+            if (file.type !== 'application/pdf') {
+                Swal.fire('Format Salah', 'Harap pilih file berformat PDF', 'error');
+                return;
+            }
+            
+            // Limit 4MB
+            if (file.size > 4 * 1024 * 1024) {
+                Swal.fire('Terlalu Besar', 'Maksimal ukuran file adalah 4MB', 'error');
+                return;
+            }
 
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sedang Upload...'; btn.disabled = true;
             const reader = new FileReader();
@@ -396,8 +434,17 @@
                 const data = new URLSearchParams(new FormData(e.target));
                 data.append('action', 'upload_file');
                 data.append('filedata', reader.result);
+                
                 fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
-                    if(res.result === 'success') { Swal.fire('Sukses', 'Dokumen berhasil dipublikasikan', 'success'); e.target.reset(); loadPublicContent(); }
+                    if(res.result === 'success') { 
+                        Swal.fire('Sukses', 'Dokumen berhasil dipublikasikan', 'success'); 
+                        e.target.reset(); 
+                        loadPublicContent(); 
+                    } else {
+                        Swal.fire('Gagal', 'Terjadi kesalahan: ' + (res.error || 'Server error'), 'error');
+                    }
+                }).catch(err => {
+                    Swal.fire('Error', 'Gagal menghubungi server. Pastikan deployment aktif.', 'error');
                 }).finally(() => { btn.innerHTML = 'Mulai Upload'; btn.disabled = false; });
             };
         }
@@ -409,11 +456,14 @@
             const data = new URLSearchParams(new FormData(e.target));
             data.append('action', 'post_announcement');
             fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
-                if(res.result === 'success') { Swal.fire('Terkirim', 'Informasi telah diterbitkan', 'success'); e.target.reset(); loadPublicContent(); }
+                if(res.result === 'success') { 
+                    Swal.fire('Terkirim', 'Informasi telah diterbitkan', 'success'); 
+                    e.target.reset(); 
+                    loadPublicContent(); 
+                }
             }).finally(() => { btn.innerHTML = 'Terbitkan'; btn.disabled = false; });
         }
 
-        // --- LOGIN & MEMBER MANAGEMENT ---
         function submitLogin(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-login');
@@ -428,9 +478,9 @@
                     else {
                         const u = res.data;
                         document.getElementById('user-name-display').innerText = u.nama;
-                        document.getElementById('dash-saldo').innerText = formatIDR(u.saldo);
-                        document.getElementById('dash-pinjaman').innerText = formatIDR(u.pinjaman);
-                        document.getElementById('dash-shu').innerText = formatIDR(u.shu);
+                        document.getElementById('dash-saldo').innerText = formatIDR(u.saldo || 0);
+                        document.getElementById('dash-pinjaman').innerText = formatIDR(u.pinjaman || 0);
+                        document.getElementById('dash-shu').innerText = formatIDR(u.shu || 0);
                         switchView('dashboard');
                     }
                 } else { Swal.fire('Gagal', res.message, 'error'); }
@@ -458,12 +508,12 @@
         function renderMembersTable(members) {
             const tbody = document.getElementById('admin-members-table');
             tbody.innerHTML = members.map(m => `
-                <tr class="border-b hover:bg-gray-50 text-xs md:text-sm">
-                    <td class="px-4 md:px-6 py-4"><b>${m.nama}</b><br><span class="text-xs text-gray-500">${m.nik}</span></td>
-                    <td class="px-4 md:px-6 py-4 text-right font-bold text-blue-600">${formatIDR(m.saldo)}</td>
-                    <td class="px-4 md:px-6 py-4 text-right text-orange-600">${formatIDR(m.pinjaman)}</td>
-                    <td class="px-4 md:px-6 py-4 text-right text-green-600">${formatIDR(m.shu)}</td>
-                    <td class="px-4 md:px-6 py-4 text-center"><button onclick='openEditModal(${JSON.stringify(m)})' class="text-brand-blue hover:underline font-bold">Edit</button></td>
+                <tr class="border-b hover:bg-gray-50 text-xs">
+                    <td class="px-4 py-4"><b>${m.nama}</b><br><span class="text-xs text-gray-500">${m.nik}</span></td>
+                    <td class="px-4 py-4 text-right font-bold text-blue-600">${formatIDR(m.saldo)}</td>
+                    <td class="px-4 py-4 text-right text-orange-600">${formatIDR(m.pinjaman)}</td>
+                    <td class="px-4 py-4 text-right text-green-600">${formatIDR(m.shu)}</td>
+                    <td class="px-4 py-4 text-center"><button onclick='openEditModal(${JSON.stringify(m)})' class="text-brand-blue hover:underline font-bold">Edit</button></td>
                 </tr>
             `).join('');
         }
@@ -491,8 +541,7 @@
             }).finally(() => { btn.innerHTML = 'Simpan Perubahan'; btn.disabled = false; });
         }
 
-        // Initialize
-        loadPublicContent();
+        document.addEventListener('DOMContentLoaded', loadPublicContent);
     </script>
 </body>
 </html>
