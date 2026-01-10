@@ -38,11 +38,11 @@
 <body class="font-sans text-gray-700 bg-gray-50 antialiased">
 
     <!-- ========================================= -->
-    <!-- VIEW: LANDING PAGE -->
+    <!-- TAMPILAN: LANDING PAGE -->
     <!-- ========================================= -->
     <div id="landing-view">
         <!-- NAVBAR -->
-        <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white py-4 shadow-sm text-sm">
+        <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white py-4 shadow-sm text-sm border-b">
             <div class="container mx-auto px-6 flex justify-between items-center">
                 <a href="#" onclick="switchView('landing')" class="flex items-center gap-2 group">
                     <img src="https://i.ibb.co.com/2Xk4T85/Capture-1.png" alt="Logo Kawan MKI" class="w-12 h-12 object-contain shadow-sm rounded-full">
@@ -66,8 +66,8 @@
         <section id="beranda" class="hero-pattern min-h-screen flex items-center text-white pt-20">
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center text-center md:text-left">
                 <div class="space-y-6">
-                    <span class="bg-brand-gold text-brand-dark px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Official Portal</span>
-                    <h1 class="text-4xl md:text-6xl font-bold leading-tight">Central Digital Hub <br> <span class="text-brand-gold">Anggota Koperasi</span></h1>
+                    <span class="bg-brand-gold text-brand-dark px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Portal Resmi</span>
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight text-white">Central Digital Hub <br> <span class="text-brand-gold">Anggota Koperasi</span></h1>
                     <p class="text-lg text-gray-200 max-w-lg mx-auto md:mx-0">Pantau simpanan, ajukan pinjaman, dan terima notifikasi resmi langsung melalui portal digital kami secara mudah dan transparan.</p>
                     <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                         <button onclick="switchModal(null, 'registerModal')" class="bg-brand-gold text-brand-dark px-8 py-3 rounded-full font-bold hover:bg-yellow-400 shadow-lg transition transform hover:scale-105">Daftar Akun</button>
@@ -77,7 +77,7 @@
             </div>
         </section>
 
-        <!-- LAYANAN SECTION -->
+        <!-- SEKSI LAYANAN -->
         <section id="layanan" class="py-20 bg-white text-sm">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -86,49 +86,47 @@
                 </div>
                 <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
                     <div class="bg-gray-50 p-8 rounded-3xl shadow-sm border border-transparent hover:border-brand-blue transition-all group">
-                        <div class="w-16 h-16 bg-blue-100 text-brand-blue rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto md:mx-0 group-hover:bg-brand-blue group-hover:text-white transition"><i class="fas fa-money-bill-wave"></i></div>
+                        <div class="w-16 h-16 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center text-3xl mb-6 mx-auto md:mx-0 group-hover:bg-brand-blue group-hover:text-white transition"><i class="fas fa-money-bill-wave"></i></div>
                         <h4 class="text-xl font-bold text-gray-800 mb-3 tracking-tight">Simpan Pinjam</h4>
-                        <p class="text-gray-500 leading-relaxed">Akses simpanan dan pinjaman karyawan dengan proses cepat, transparan, dan bagi hasil kompetitif.</p>
+                        <p class="text-sm text-gray-500 leading-relaxed">Akses simpanan dan pinjaman karyawan dengan proses cepat, transparan, dan bagi hasil kompetitif.</p>
                     </div>
                     <div class="bg-gray-50 p-8 rounded-3xl shadow-sm border border-transparent hover:border-brand-blue transition-all group text-center md:text-left">
-                        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto md:mx-0 group-hover:bg-green-600 group-hover:text-white transition"><i class="fas fa-shopping-basket"></i></div>
+                        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-3xl mb-6 mx-auto md:mx-0 group-hover:bg-green-600 group-hover:text-white transition"><i class="fas fa-shopping-basket"></i></div>
                         <h4 class="text-xl font-bold text-gray-800 mb-3 tracking-tight">Wasera Mart</h4>
-                        <p class="text-gray-500 leading-relaxed">Belanja kebutuhan harian dengan sistem cicilan potong gaji bulanan yang meringankan keuangan Anda.</p>
+                        <p class="text-sm text-gray-500 leading-relaxed">Belanja kebutuhan harian dengan sistem cicilan potong gaji bulanan yang meringankan keuangan Anda.</p>
                     </div>
                     <div class="bg-gray-50 p-8 rounded-3xl shadow-sm border border-transparent hover:border-brand-blue transition-all group text-center md:text-left">
-                        <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-6 mx-auto md:mx-0 group-hover:bg-orange-600 group-hover:text-white transition"><i class="fas fa-trowel-bricks"></i></div>
+                        <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-3xl mb-6 mx-auto md:mx-0 group-hover:bg-orange-600 group-hover:text-white transition"><i class="fas fa-trowel-bricks"></i></div>
                         <h4 class="text-xl font-bold text-gray-800 mb-3 tracking-tight">Produk Mortar</h4>
-                        <p class="text-gray-500 leading-relaxed">Penyediaan produk Mortar Indonesia terbaik untuk kebutuhan renovasi rumah tinggal khusus bagi anggota.</p>
+                        <p class="text-sm text-gray-500 leading-relaxed">Penyediaan produk Mortar Indonesia terbaik untuk kebutuhan renovasi rumah tinggal khusus bagi anggota.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PENGUMUMAN SECTION -->
+        <!-- SEKSI PENGUMUMAN -->
         <section id="pengumuman" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6 text-center">
-                <h3 class="text-3xl font-bold text-gray-800 tracking-tight mb-4">Informasi Terbaru</h3>
+                <h3 class="text-3xl font-bold text-gray-800 tracking-tight mb-4">Informasi & Pengumuman</h3>
                 <div class="w-20 h-1 bg-brand-gold mx-auto mb-12 rounded"></div>
                 <div id="public-announcement-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
-                    <div class="col-span-full text-center text-gray-500 py-10 italic">Memuat pengumuman...</div>
+                    <div class="col-span-full text-center text-gray-500 py-10 italic">Memuat pengumuman terbaru...</div>
                 </div>
             </div>
         </section>
 
         <footer class="bg-brand-dark text-white py-10 text-center text-xs">
-            <p>&copy; 2026 Koperasi Kawan MKI. All rights reserved. GuoKing_</p>
+            <p>&copy; 2026 Koperasi Kawan MKI. Seluruh hak cipta dilindungi. GuoKing_</p>
         </footer>
     </div>
 
-    <!-- ========================================= -->
-    <!-- VIEW: KANAL DOWNLOAD -->
-    <!-- ========================================= -->
+    <!-- TAMPILAN: KANAL DOWNLOAD -->
     <div id="download-view" class="hidden-view bg-gray-50 min-h-screen">
         <nav class="bg-white shadow-sm sticky top-0 z-40">
-            <div class="container mx-auto px-6 py-4 flex justify-between items-center text-sm">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center text-sm border-b">
                 <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('landing')">
                     <i class="fas fa-arrow-left text-brand-blue text-xl"></i>
-                    <h4 class="font-bold text-gray-800">Kembali</h4>
+                    <h4 class="font-bold text-gray-800">Kembali ke Beranda</h4>
                 </div>
             </div>
         </nav>
@@ -136,27 +134,25 @@
             <div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
                 <h2 class="text-3xl font-bold text-brand-dark mb-8 tracking-tight"><i class="fas fa-folder-open mr-2 text-brand-gold"></i> Kanal Download</h2>
                 <ul id="public-download-list" class="divide-y divide-gray-100 border rounded-2xl overflow-hidden bg-white text-sm">
-                    <li class="p-10 text-center text-gray-400 italic">Memuat file...</li>
+                    <li class="p-10 text-center text-gray-400 italic">Memuat berkas...</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- ========================================= -->
-    <!-- VIEW: MEMBER DASHBOARD (PREMIUM) -->
-    <!-- ========================================= -->
+    <!-- TAMPILAN: DASHBOARD ANGGOTA -->
     <div id="dashboard-view" class="hidden-view bg-gray-100 min-h-screen">
-        <nav class="bg-white shadow-sm sticky top-0 z-40">
+        <nav class="bg-white shadow-sm sticky top-0 z-40 border-b">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center text-sm">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-lg"><i class="fas fa-user"></i></div>
-                    <div><h4 id="user-name-display" class="font-bold text-gray-800 leading-none">Member</h4></div>
+                    <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-lg shadow-sm"><i class="fas fa-user"></i></div>
+                    <div><h4 id="user-name-display" class="font-bold text-gray-800 leading-none">Anggota</h4></div>
                 </div>
                 <button onclick="doLogout()" class="text-red-500 hover:bg-red-50 px-4 py-2 rounded-lg font-medium transition">Keluar</button>
             </div>
         </nav>
-        <main class="container mx-auto px-6 py-8 text-sm">
-            <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <main class="container mx-auto px-6 py-8">
+            <div class="grid md:grid-cols-3 gap-6 mb-8 text-sm">
                 <div class="bg-gradient-to-br from-brand-blue to-blue-600 text-white rounded-3xl p-7 shadow-lg relative overflow-hidden transition-transform hover:scale-[1.02]">
                     <div class="absolute right-0 top-0 p-4 opacity-10"><i class="fas fa-wallet text-8xl"></i></div>
                     <p class="text-blue-100 text-[10px] font-bold uppercase mb-1 tracking-widest">Total Simpanan</p>
@@ -176,57 +172,55 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="md:col-span-2 space-y-8">
-                    <div class="bg-white rounded-3xl p-7 shadow-sm border border-gray-100">
+                    <div class="bg-white rounded-3xl p-7 shadow-sm border border-gray-100 text-sm">
                         <h4 class="font-bold text-gray-800 mb-6 flex items-center gap-2 tracking-tight"><i class="fas fa-th-large text-brand-blue"></i> Menu Anggota</h4>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                             <button onclick="showLoanForm()" class="flex flex-col items-center gap-2 p-5 rounded-3xl bg-gray-50 hover:bg-brand-light transition group">
                                 <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-brand-blue group-hover:scale-110 transition"><i class="fas fa-hand-holding-usd"></i></div>
-                                <span class="text-[10px] font-bold uppercase">Pinjaman</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wide">Pinjaman</span>
                             </button>
                             <button onclick="switchView('download')" class="flex flex-col items-center gap-2 p-5 rounded-3xl bg-gray-50 hover:bg-brand-light transition group">
                                 <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-brand-blue"><i class="fas fa-download"></i></div>
-                                <span class="text-[10px] font-bold uppercase">Dokumen</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wide">Dokumen</span>
                             </button>
                             <button class="flex flex-col items-center gap-2 p-5 rounded-3xl bg-gray-50 transition group">
                                 <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-green-500 group-hover:scale-110 transition"><i class="fas fa-shopping-cart"></i></div>
-                                <span class="text-[10px] font-bold uppercase">Wasera</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wide">Wasera</span>
                             </button>
                             <button class="flex flex-col items-center gap-2 p-5 rounded-3xl bg-gray-50 transition group">
                                 <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-purple-500 group-hover:scale-110 transition"><i class="fas fa-user-cog"></i></div>
-                                <span class="text-[10px] font-bold uppercase">Profil</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wide">Profil</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-white rounded-3xl p-7 shadow-sm border border-gray-100 h-fit text-xs">
-                    <h4 class="font-bold text-gray-800 mb-5 border-b pb-3 text-sm flex items-center gap-2 tracking-tight"><i class="fas fa-calculator text-brand-gold"></i> Simulasi</h4>
+                    <h4 class="font-bold text-gray-800 mb-5 border-b pb-3 text-sm flex items-center gap-2 tracking-tight"><i class="fas fa-calculator text-brand-gold"></i> Simulasi Cicilan</h4>
                     <div class="space-y-4">
                         <input type="number" id="dash-sim-amount" class="w-full border rounded-2xl p-4 outline-none bg-gray-50 transition focus:ring-2 focus:ring-brand-blue" placeholder="Nominal Rp">
                         <select id="dash-sim-months" class="w-full border rounded-2xl p-4 bg-gray-50 outline-none"><option value="6">6 Bulan</option><option value="12">12 Bulan</option><option value="24">24 Bulan</option></select>
                         <div class="bg-blue-50 p-5 rounded-2xl text-center border border-blue-100">
-                            <p class="text-gray-500 text-[10px] mb-1 uppercase font-bold tracking-widest">Angsuran / Bulan</p>
+                            <p class="text-gray-500 text-[10px] mb-1 uppercase font-bold tracking-widest">Estimasi Angsuran</p>
                             <p id="dash-sim-result" class="font-bold text-brand-blue text-2xl tracking-tighter">Rp 0</p>
                         </div>
-                        <button onclick="calculateDashSim()" class="w-full bg-brand-dark text-white py-3.5 rounded-2xl font-bold shadow-md uppercase tracking-widest">Hitung</button>
+                        <button onclick="calculateDashSim()" class="w-full bg-brand-dark text-white py-3.5 rounded-2xl font-bold shadow-md uppercase tracking-widest transition transform active:scale-95">Hitung</button>
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- ========================================= -->
-    <!-- VIEW: ADMIN DASHBOARD -->
-    <!-- ========================================= -->
+    <!-- TAMPILAN: ADMIN DASHBOARD -->
     <div id="admin-view" class="hidden-view bg-gray-100 min-h-screen text-sm">
-        <nav class="bg-brand-dark text-white shadow-md sticky top-0 z-40">
+        <nav class="bg-brand-dark text-white shadow-md sticky top-0 z-40 border-b border-white/10">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center text-sm">
                 <div class="flex items-center gap-3"><div class="w-10 h-10 bg-brand-gold text-brand-dark rounded-full flex items-center justify-center font-bold text-lg"><i class="fas fa-user-shield"></i></div><h4 class="font-bold leading-none text-white">Admin Panel</h4></div>
                 <button onclick="doLogout()" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg font-medium text-xs text-white">Keluar</button>
             </div>
         </nav>
         <main class="container mx-auto px-6 py-8">
-            <div class="grid md:grid-cols-4 gap-4 mb-8 text-[10px] font-bold uppercase tracking-wider">
+            <div class="grid md:grid-cols-4 gap-4 mb-8 text-[10px] font-bold uppercase tracking-wider text-gray-800">
                 <a href="https://s.id/AplikasiSoKawanMKI" target="_blank" class="bg-white p-5 rounded-3xl shadow border-l-4 border-brand-blue flex items-center gap-3 hover:shadow-lg transition"><i class="fas fa-file-contract text-2xl text-brand-blue"></i><div><h4>Surat Order</h4></div></a>
                 <a href="https://s.id/APlikasiInvoiceKawanMKI" target="_blank" class="bg-white p-5 rounded-3xl shadow border-l-4 border-brand-gold flex items-center gap-3 hover:shadow-lg transition"><i class="fas fa-file-invoice text-2xl text-orange-600"></i><div><h4>Invoice</h4></div></a>
                 <button onclick="showAdminTab('upload')" class="bg-white p-5 rounded-3xl shadow border-l-4 border-green-600 flex items-center gap-3 hover:shadow-lg transition text-left"><i class="fas fa-cloud-upload-alt text-2xl text-green-600"></i><div><h4>Upload & Info</h4></div></button>
@@ -238,18 +232,18 @@
                 <div class="overflow-x-auto"><table class="w-full text-xs text-left text-gray-500"><thead class="bg-gray-50 uppercase text-[10px] font-bold"><tr><th class="px-6 py-4">Nama (NIK)</th><th class="px-6 py-4 text-right">Saldo</th><th class="px-6 py-4 text-right">Pinjaman</th><th class="px-6 py-4 text-center">Aksi</th></tr></thead><tbody id="admin-members-table"></tbody></table></div>
             </div>
 
-            <div id="admin-tab-upload" class="hidden space-y-8">
+            <div id="admin-tab-upload" class="hidden space-y-8 text-sm">
                 <div class="grid md:grid-cols-2 gap-8 text-sm">
                     <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
-                        <h3 class="font-bold text-gray-800 mb-5 border-b pb-3 tracking-tight">Upload Dokumen (PDF)</h3>
+                        <h3 class="font-bold text-gray-800 mb-5 border-b pb-3 tracking-tight">Unggah Berkas PDF</h3>
                         <form onsubmit="submitUploadFile(event)" class="space-y-4 text-xs">
-                            <input type="text" name="filename" required placeholder="Judul File" class="w-full border rounded-xl p-4 outline-none focus:border-brand-blue transition"><input type="text" name="description" placeholder="Deskripsi" class="w-full border rounded-xl p-4 outline-none focus:border-brand-blue transition"><input type="file" id="file-upload-input" accept="application/pdf" required class="w-full text-[10px] text-gray-400"><button type="submit" id="btn-upload" class="w-full bg-brand-blue text-white py-4 rounded-xl font-bold shadow-md uppercase tracking-widest">Mulai Upload</button>
+                            <input type="text" name="filename" required placeholder="Judul Berkas" class="w-full border rounded-xl p-4 outline-none focus:border-brand-blue transition"><input type="text" name="description" placeholder="Keterangan singkat" class="w-full border rounded-xl p-4 outline-none focus:border-brand-blue transition"><input type="file" id="file-upload-input" accept="application/pdf" required class="w-full text-[10px] text-gray-400"><button type="submit" id="btn-upload" class="w-full bg-brand-blue text-white py-4 rounded-xl font-bold shadow-md uppercase tracking-widest transition active:scale-95">Mulai Unggah</button>
                         </form>
                     </div>
                     <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
-                        <h3 class="font-bold text-gray-800 mb-5 border-b pb-3 tracking-tight">Buat Pengumuman</h3>
+                        <h3 class="font-bold text-gray-800 mb-5 border-b pb-3 tracking-tight">Buat Pengumuman Baru</h3>
                         <form onsubmit="submitAnnouncement(event)" class="space-y-4 text-xs">
-                            <input type="text" name="judul" required placeholder="Judul Pengumuman" class="w-full border rounded-xl p-4 outline-none focus:border-brand-blue transition"><textarea name="isi" required rows="4" placeholder="Isi detail informasi..." class="w-full border rounded-xl p-4 outline-none focus:border-brand-blue transition"></textarea><button type="submit" id="btn-announce" class="w-full bg-green-600 text-white py-4 rounded-xl font-bold shadow-md uppercase tracking-widest">Publikasikan</button>
+                            <input type="text" name="judul" required placeholder="Judul Informasi" class="w-full border rounded-xl p-4 outline-none focus:border-brand-blue transition"><textarea name="isi" required rows="4" placeholder="Isi pesan pengumuman..." class="w-full border rounded-xl p-4 outline-none focus:border-brand-blue transition"></textarea><button type="submit" id="btn-announce" class="w-full bg-green-600 text-white py-4 rounded-xl font-bold shadow-md uppercase tracking-widest transition active:scale-95">Publikasikan</button>
                         </form>
                     </div>
                 </div>
@@ -257,54 +251,53 @@
         </main>
     </div>
 
-    <!-- MODALS -->
-    <!-- LOGIN MODAL -->
+    <!-- MODAL-MODAL -->
+    <!-- MODAL LOGIN -->
     <div id="loginModal" class="fixed inset-0 z-[100] hidden">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="toggleModal('loginModal')"></div>
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-full max-w-md rounded-[2.5rem] p-12 modal-animate shadow-2xl overflow-hidden text-sm">
             <div class="absolute -top-10 -right-10 w-24 h-24 bg-brand-blue/5 rounded-full"></div>
             <div class="flex justify-between items-center mb-10 relative z-10">
-                <h3 class="text-3xl font-extrabold text-brand-dark tracking-tighter">Login</h3>
+                <h3 class="text-3xl font-extrabold text-brand-dark tracking-tighter">Login Portal</h3>
                 <button onclick="toggleModal('loginModal')" class="text-gray-300 hover:text-red-500 transition"><i class="fas fa-times text-2xl"></i></button>
             </div>
             <form id="loginForm" onsubmit="submitLogin(event)" class="space-y-6 relative z-10">
                 <div><label class="block text-[10px] font-bold text-gray-400 mb-2 tracking-widest uppercase">NIK / Username</label><input type="text" name="nik" required class="w-full p-5 border-2 border-gray-50 rounded-2xl outline-none focus:border-brand-blue transition shadow-sm" placeholder="Masukkan NIK"></div>
-                <div><label class="block text-[10px] font-bold text-gray-400 mb-2 tracking-widest uppercase">Password</label><input type="password" name="password" required class="w-full p-5 border-2 border-gray-50 rounded-2xl outline-none focus:border-brand-blue transition shadow-sm" placeholder="Password"></div>
-                <button id="btn-login" class="w-full bg-brand-blue text-white font-extrabold py-5 rounded-2xl shadow-xl hover:bg-brand-dark transition transform active:scale-95 uppercase tracking-widest text-[10px]">Masuk Sekarang</button>
+                <div><label class="block text-[10px] font-bold text-gray-400 mb-2 tracking-widest uppercase">Password</label><input type="password" name="password" required class="w-full p-5 border-2 border-gray-50 rounded-2xl outline-none focus:border-brand-blue transition shadow-sm" placeholder="Masukkan Kata Sandi"></div>
+                <button id="btn-login" class="w-full bg-brand-blue text-white font-extrabold py-5 rounded-2xl shadow-xl hover:bg-brand-dark transition transform active:scale-95 uppercase tracking-widest text-[10px]">Lanjutkan Masuk</button>
             </form>
             <div class="mt-8 text-center text-xs text-gray-400 relative z-10 italic">Belum punya akun? <a href="#" onclick="switchModal('loginModal', 'registerModal')" class="text-brand-blue font-bold hover:underline transition">Daftar Anggota</a></div>
         </div>
     </div>
 
-    <!-- REGISTER MODAL -->
+    <!-- MODAL REGISTER -->
     <div id="registerModal" class="fixed inset-0 z-[100] hidden">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="toggleModal('registerModal')"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-full max-w-lg rounded-[2.5rem] p-12 modal-animate overflow-y-auto max-h-[90vh] shadow-2xl">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-full max-w-lg rounded-[2.5rem] p-12 modal-animate overflow-y-auto max-h-[90vh] shadow-2xl text-sm">
             <h3 class="text-3xl font-extrabold text-brand-dark mb-6 text-center tracking-tighter">Pendaftaran</h3>
-            <div class="bg-blue-50 p-5 rounded-3xl border border-blue-100 text-brand-blue text-[11px] font-bold mb-8 flex items-center gap-4"><i class="fas fa-magic text-2xl"></i> <div>Data login Anda akan dikirim otomatis ke WhatsApp segera setelah pendaftaran selesai.</div></div>
+            <div class="bg-blue-50 p-5 rounded-3xl border border-blue-100 text-brand-blue text-[11px] font-bold mb-8 flex items-center gap-4 border-dashed"><i class="fas fa-magic text-xl"></i> <div>Data login Anda akan dikirim otomatis ke WhatsApp via Fonnte segera setelah pendaftaran selesai.</div></div>
             <form id="registerForm" onsubmit="submitRegister(event)" class="space-y-5 text-sm">
                 <input type="hidden" name="action" value="register">
-                <div><label class="block text-[10px] font-bold text-gray-400 mb-2 tracking-widest uppercase">Nama Lengkap</label><input type="text" name="nama" placeholder="Sesuai KTP" class="w-full border-2 border-gray-50 p-5 rounded-2xl outline-none focus:border-brand-blue transition shadow-sm" required></div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div><label class="block text-[10px] font-bold text-gray-400 mb-2 tracking-widest uppercase">Unit Kerja</label><input type="text" name="unit" placeholder="Divisi" class="w-full border-2 border-gray-50 p-5 rounded-2xl outline-none focus:border-brand-blue transition shadow-sm" required></div>
-                    <div><label class="block text-[10px] font-bold text-gray-400 mb-2 tracking-widest uppercase">No. WA</label><input type="tel" name="telepon" id="reg-telepon" placeholder="08..." class="w-full border-2 border-gray-50 p-5 rounded-2xl outline-none focus:border-brand-blue transition shadow-sm" required></div>
+                <div><label class="block text-[10px] font-bold text-gray-400 mb-2 tracking-widest uppercase">Nama Lengkap</label><input type="text" name="nama" placeholder="Nama sesuai KTP" class="w-full border-2 border-gray-50 p-5 rounded-2xl outline-none focus:border-brand-blue transition shadow-sm" required></div>
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                    <div><label class="block text-[10px] font-bold text-gray-400 mb-2 tracking-widest uppercase">Unit Kerja</label><input type="text" name="unit" placeholder="Divisi/Unit" class="w-full border-2 border-gray-50 p-5 rounded-2xl outline-none focus:border-brand-blue transition shadow-sm" required></div>
+                    <div><label class="block text-[10px] font-bold text-gray-400 mb-2 tracking-widest uppercase">No. WA</label><input type="tel" name="telepon" id="reg-telepon" placeholder="Contoh: 08..." class="w-full border-2 border-gray-50 p-5 rounded-2xl outline-none focus:border-brand-blue transition shadow-sm" required></div>
                 </div>
-                <div><label class="block text-[10px] font-bold text-gray-400 mb-2 tracking-widest uppercase">Email</label><input type="email" name="email" placeholder="nama@email.com" class="w-full border-2 border-gray-50 p-5 rounded-2xl outline-none focus:border-brand-blue transition shadow-sm" required></div>
-                <div><label class="block text-[10px] font-bold text-gray-400 mb-2 tracking-widest uppercase">Buat Password</label><input type="password" name="password" placeholder="Minimal 6 Karakter" class="w-full border-2 border-gray-50 p-5 rounded-2xl bg-gray-50 outline-none focus:border-brand-blue transition shadow-sm" required></div>
-                <button id="btn-register" class="w-full bg-brand-gold font-extrabold text-white py-5 rounded-2xl shadow-xl hover:bg-yellow-500 transition transform active:scale-95 uppercase tracking-widest text-[10px]">Konfirmasi Daftar</button>
+                <div><label class="block text-[10px] font-bold text-gray-400 mb-2 tracking-widest uppercase">Kata Sandi Baru</label><input type="password" name="password" placeholder="Minimal 6 Karakter" class="w-full border-2 border-gray-100 p-5 rounded-2xl bg-gray-50 outline-none focus:border-brand-blue transition shadow-sm" required></div>
+                <button id="btn-register" class="w-full bg-brand-gold font-extrabold text-white py-5 rounded-2xl shadow-xl hover:bg-yellow-500 transition transform active:scale-95 uppercase tracking-widest text-[10px]">Konfirmasi & Daftar</button>
             </form>
         </div>
     </div>
 
-    <!-- UPDATE MEMBER MODAL -->
+    <!-- MODAL UPDATE ANGGOTA -->
     <div id="editMemberModal" class="fixed inset-0 z-[100] hidden">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleModal('editMemberModal')"></div>
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-full max-w-md rounded-[2.5rem] p-10 modal-animate shadow-2xl">
-            <h3 class="text-xl font-bold mb-6 tracking-tight text-brand-dark text-center">Perbarui Saldo Anggota</h3>
+            <h3 class="text-xl font-bold mb-6 tracking-tight text-brand-dark text-center">Mutasi Saldo Anggota</h3>
             <form id="editMemberForm" onsubmit="submitUpdateMember(event)" class="space-y-4 text-sm">
                 <input type="hidden" name="action" value="update_member"><input type="hidden" name="target_nik" id="edit-nik">
-                <div class="bg-gray-50 p-4 rounded-2xl font-bold text-brand-dark text-[10px] text-center mb-4 shadow-inner" id="edit-nama-display">-</div>
-                <input type="number" id="edit-saldo" name="new_saldo" placeholder="Simpanan (Rp)" class="w-full border p-4 rounded-2xl outline-none focus:border-brand-blue transition">
+                <div class="bg-gray-50 p-4 rounded-2xl font-bold text-brand-dark text-[11px] text-center mb-4 shadow-inner" id="edit-nama-display">-</div>
+                <input type="number" id="edit-saldo" name="new_saldo" placeholder="Total Simpanan (Rp)" class="w-full border p-4 rounded-2xl outline-none focus:border-brand-blue transition">
                 <input type="number" id="edit-pinjaman" name="new_pinjaman" placeholder="Pinjaman (Rp)" class="w-full border p-4 rounded-2xl outline-none focus:border-brand-blue transition">
                 <input type="number" id="edit-shu" name="new_shu" placeholder="SHU (Rp)" class="w-full border p-4 rounded-2xl outline-none focus:border-brand-blue transition">
                 <button id="btn-update-member" class="w-full bg-brand-blue text-white font-extrabold py-5 rounded-2xl shadow-lg uppercase text-[10px] tracking-widest transition active:scale-95">Simpan Perubahan</button>
@@ -316,10 +309,11 @@
         // ==========================================
         // URL SCRIPT DEPLOYMENT TERBARU
         // ==========================================
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwcK6snR5r2pmA7vCndGQ8Mh0lP0BacgjCw_MBq6WNBHnFiqK7UnLCak8EE5_B8PgGn/exec"; 
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz97LihhX2FvCsaqLMJKY_wFY3bH3oR6YMLk-LtioTia1dRQyuBjDzg9GolPCWnzgRHAw/exec"; 
 
         let allMembersData = [];
         const formatIDR = (n) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(n);
+        
         function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); }
         function switchModal(close, open) { if(close) toggleModal(close); setTimeout(() => toggleModal(open), 200); }
 
@@ -331,7 +325,9 @@
             const target = document.getElementById(view + '-view');
             if(target) target.classList.remove('hidden-view');
             window.scrollTo(0, 0);
-            if (view === 'landing' || view === 'download') setTimeout(loadPublicContent, 200);
+            if (view === 'landing' || view === 'download') {
+                setTimeout(loadPublicContent, 200);
+            }
         }
 
         function showAdminTab(tab) {
@@ -350,42 +346,54 @@
         }
 
         function doLogout() {
-            Swal.fire({ title: 'Keluar?', text: "Sesi login Anda akan segera berakhir.", icon: 'warning', showCancelButton: true, confirmButtonText: 'Ya, Keluar', confirmButtonColor: '#d33' }).then((r) => { 
+            Swal.fire({ title: 'Keluar?', text: "Sesi Anda akan berakhir.", icon: 'warning', showCancelButton: true, confirmButtonText: 'Ya, Keluar', confirmButtonColor: '#d33' }).then((r) => { 
                 if(r.isConfirmed) { switchView('landing'); document.getElementById('loginForm').reset(); } 
             }); 
         }
 
-        async function loadPublicContent() {
-            const params = new URLSearchParams(); 
-            params.append('action', 'get_content');
-            
+        // --- FUNGSI UTAMA KOMUNIKASI SERVER ---
+        // Disederhanakan untuk menghindari masalah pre-flight CORS
+        async function submitRequest(action, extraData = {}) {
+            const params = new URLSearchParams();
+            params.append('action', action);
+            for (const key in extraData) {
+                params.append(key, extraData[key]);
+            }
+
             try {
-                const response = await fetch(SCRIPT_URL, { 
-                    method: 'POST', 
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
                     body: params,
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                    mode: 'cors'
                 });
                 
-                if (!response.ok) throw new Error('API request failed');
-                const res = await response.json();
-                
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error("Comm Failure:", error);
+                throw error;
+            }
+        }
+
+        async function loadPublicContent() {
+            try {
+                const res = await submitRequest('get_content');
                 if(res.result === 'success') {
-                    // Render Announcements
                     const annList = document.getElementById('public-announcement-list');
                     if (annList) annList.innerHTML = (res.announcements && res.announcements.length) ? res.announcements.map(a => `<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-50 text-left hover:shadow-md transition text-xs"><span class="text-[9px] font-bold text-gray-300 uppercase tracking-widest">${new Date(a.date).toLocaleDateString()}</span><h4 class="font-bold text-brand-dark mt-3 text-lg tracking-tight">${a.title}</h4><p class="text-xs text-gray-500 mt-4 leading-relaxed line-clamp-4">${a.content}</p></div>`).join('') : '<div class="col-span-full py-10 text-gray-400 italic text-center text-xs">Belum ada informasi baru tersedia.</div>';
                     
-                    // Render Downloads
                     const downList = document.getElementById('public-download-list');
-                    if (downList) downList.innerHTML = (res.downloads && res.downloads.length) ? res.downloads.map(d => `<li class="flex items-center justify-between p-7 hover:bg-gray-50 transition text-left text-xs"><div class="flex items-center gap-5"><div class="bg-red-50 text-red-500 w-12 h-12 rounded-2xl flex items-center justify-center border border-red-100 shadow-inner"><i class="fas fa-file-pdf text-xl"></i></div><div><h5 class="font-bold text-gray-800 text-sm tracking-tight">${d.name}</h5><p class="text-[9px] text-gray-400 mt-1 uppercase tracking-wider">${d.desc}</p></div></div><a href="${d.link}" target="_blank" class="bg-brand-blue text-white px-6 py-2.5 rounded-2xl text-[10px] font-bold shadow-lg uppercase tracking-wider transition hover:bg-brand-dark">Download</a></li>`).join('') : '<li class="p-14 text-center text-gray-400 italic text-xs">Belum ada file dokumen yang diunggah.</li>';
+                    if (downList) downList.innerHTML = (res.downloads && res.downloads.length) ? res.downloads.map(d => `<li class="flex items-center justify-between p-7 hover:bg-gray-50 transition text-left text-xs"><div class="flex items-center gap-5"><div class="bg-red-50 text-red-500 w-12 h-12 rounded-2xl flex items-center justify-center border border-red-100 shadow-inner"><i class="fas fa-file-pdf text-xl"></i></div><div><h5 class="font-bold text-gray-800 text-sm tracking-tight">${d.name}</h5><p class="text-[9px] text-gray-400 mt-1 uppercase tracking-wider">${d.desc}</p></div></div><a href="${d.link}" target="_blank" class="bg-brand-blue text-white px-6 py-2.5 rounded-2xl text-[10px] font-bold shadow-lg uppercase tracking-wider transition hover:bg-brand-dark">Download</a></li>`).join('') : '<li class="p-14 text-center text-gray-400 italic text-xs font-medium">Belum ada berkas untuk diunduh.</li>';
                 }
             } catch (err) {
                 console.error("Database Error:", err);
                 const annList = document.getElementById('public-announcement-list');
-                if (annList) annList.innerHTML = '<div class="col-span-full py-10 text-red-400 text-center bg-red-50 rounded-3xl border border-red-100 text-xs font-bold">Terjadi kendala memuat data. Mohon coba refresh halaman.</div>';
+                if (annList) annList.innerHTML = '<div class="col-span-full py-10 text-red-400 text-center bg-red-50 rounded-3xl border border-red-100 text-xs font-bold">Gagal memuat data dari server. Mohon pastikan deployment Google Apps Script sudah diset ke "Anyone".</div>';
             }
         }
 
-        function submitUploadFile(e) {
+        async function submitUploadFile(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-upload');
             const file = document.getElementById('file-upload-input').files[0];
@@ -393,34 +401,40 @@
             btn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> Mengunggah...'; btn.disabled = true;
             const reader = new FileReader();
             reader.readAsDataURL(file);
-            reader.onload = function () {
-                const data = new URLSearchParams(new FormData(e.target));
-                data.append('action', 'upload_file'); data.append('filedata', reader.result);
-                fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
-                    if(res.result === 'success') { Swal.fire('Berhasil!', 'Dokumen PDF telah dipublikasikan.', 'success'); e.target.reset(); loadPublicContent(); }
+            reader.onload = async function () {
+                try {
+                    const formData = new FormData(e.target);
+                    const res = await submitRequest('upload_file', {
+                        filename: formData.get('filename'),
+                        description: formData.get('description'),
+                        filedata: reader.result
+                    });
+                    if(res.result === 'success') { Swal.fire('Sukses!', 'Berkas berhasil diunggah.', 'success'); e.target.reset(); loadPublicContent(); }
                     else { Swal.fire('Gagal', 'Terjadi kesalahan sistem.', 'error'); }
-                }).finally(() => { btn.innerHTML = 'Mulai Upload'; btn.disabled = false; });
+                } catch (err) { Swal.fire('Error', 'Gagal menghubungi server.', 'error'); }
+                finally { btn.innerHTML = 'Mulai Unggah'; btn.disabled = false; }
             };
         }
 
-        function submitAnnouncement(e) {
+        async function submitAnnouncement(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-announce');
             btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Memproses...'; btn.disabled = true;
-            const data = new URLSearchParams(new FormData(e.target));
-            data.append('action', 'post_announcement');
-            fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
-                if(res.result === 'success') { Swal.fire('Terkirim!', 'Pengumuman telah dipublikasikan.', 'success'); e.target.reset(); loadPublicContent(); }
-            }).finally(() => { btn.innerHTML = 'Publikasikan'; btn.disabled = false; });
+            const formData = new FormData(e.target);
+            try {
+                const res = await submitRequest('post_announcement', Object.fromEntries(formData));
+                if(res.result === 'success') { Swal.fire('Berhasil!', 'Pengumuman telah publik.', 'success'); e.target.reset(); loadPublicContent(); }
+            } catch (err) { Swal.fire('Error', 'Gagal menerbitkan pengumuman.', 'error'); }
+            finally { btn.innerHTML = 'Publikasikan'; btn.disabled = false; }
         }
 
-        function submitLogin(e) {
+        async function submitLogin(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-login');
             btn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> Memvalidasi...'; btn.disabled = true;
-            const data = new URLSearchParams(new FormData(e.target));
-            data.append('action', 'login');
-            fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
+            const formData = new FormData(e.target);
+            try {
+                const res = await submitRequest('login', Object.fromEntries(formData));
                 if (res.result === 'success') {
                     toggleModal('loginModal');
                     if (res.role === 'admin') { switchView('admin'); loadAllMembers(); } 
@@ -433,40 +447,38 @@
                         switchView('dashboard');
                     }
                 } else { Swal.fire('Gagal', res.message, 'error'); }
-            }).finally(() => { btn.innerHTML = 'Masuk Sekarang'; btn.disabled = false; });
+            } catch (err) { Swal.fire('Error', 'Gagal terhubung ke database.', 'error'); }
+            finally { btn.innerHTML = 'Lanjutkan Masuk'; btn.disabled = false; }
         }
 
-        function submitRegister(e) {
+        async function submitRegister(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-register');
             const form = e.target;
-            const passVal = form.querySelector('[name="password"]').value;
             btn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> Mendaftarkan...'; btn.disabled = true;
-            const data = new URLSearchParams(new FormData(form));
-            data.append('action', 'register');
-
-            fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
+            const formData = new FormData(form);
+            try {
+                const res = await submitRequest('register', Object.fromEntries(formData));
                 if(res.result === 'success') {
                     toggleModal('registerModal');
                     Swal.fire({
-                        title: 'Registrasi Berhasil!',
-                        html: `<div class="text-center"><p class="text-[10px] text-gray-400 mb-2 uppercase font-bold tracking-widest">NIK / Username Anda</p><p class="text-4xl font-black text-brand-blue mb-4 tracking-tight">${res.generatedNik}</p><p class="text-[11px] text-gray-400 px-4">Pesan WhatsApp berisi data login telah dikirim otomatis via Fonnte.</p></div>`,
+                        title: 'Pendaftaran Berhasil!',
+                        html: `<div class="text-center"><p class="text-[10px] text-gray-400 mb-2 uppercase font-bold tracking-widest">NIK / Username Anda</p><p class="text-4xl font-black text-brand-blue mb-4 tracking-tight">${res.generatedNik}</p><p class="text-[11px] text-gray-400 px-4">Pesan WhatsApp berisi rincian data login telah dikirim melalui Fonnte.</p></div>`,
                         icon: 'success',
-                        confirmButtonText: 'Bagus, Saya Mengerti',
+                        confirmButtonText: 'Selesai',
                         confirmButtonColor: '#004aad'
                     });
                     form.reset();
-                } else { Swal.fire('Gagal', res.message, 'error'); }
-            }).catch(err => {
-                Swal.fire('Error', 'Sistem sedang sibuk. Coba refresh halaman.', 'error');
-            }).finally(() => { btn.innerHTML = 'Konfirmasi Daftar'; btn.disabled = false; });
+                } else { Swal.fire('Gagal', res.message || 'Pendaftaran tidak berhasil.', 'error'); }
+            } catch (err) { Swal.fire('Error', 'Server tidak merespon. Mohon coba lagi.', 'error'); }
+            finally { btn.innerHTML = 'Konfirmasi & Daftar'; btn.disabled = false; }
         }
 
-        function loadAllMembers() {
-            const data = new URLSearchParams(); data.append('action', 'get_all_members');
-            fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
+        async function loadAllMembers() {
+            try {
+                const res = await submitRequest('get_all_members');
                 if(res.result === 'success') { allMembersData = res.data; renderMembersTable(allMembersData); }
-            });
+            } catch (e) { console.error("Admin Load Error", e); }
         }
 
         function renderMembersTable(members) {
@@ -488,14 +500,16 @@
             toggleModal('editMemberModal');
         }
 
-        function submitUpdateMember(e) {
+        async function submitUpdateMember(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-update-member'); btn.innerHTML = 'Menyimpan...'; btn.disabled = true;
-            const data = new URLSearchParams(new FormData(e.target));
-            data.append('action', 'update_member');
-            fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
-                if(res.result === 'success') { toggleModal('editMemberModal'); Swal.fire('Sukses', 'Data keuangan anggota telah diperbarui.', 'success'); loadAllMembers(); }
-            }).finally(() => { btn.innerHTML = 'Simpan Perubahan'; btn.disabled = false; });
+            const formData = new FormData(e.target);
+            try {
+                const res = await submitRequest('update_member', Object.fromEntries(formData));
+                if(res.result === 'success') { toggleModal('editMemberModal'); Swal.fire('Sukses!', 'Data anggota telah diperbarui.', 'success'); loadAllMembers(); }
+                else { Swal.fire('Gagal', 'Gagal memproses perubahan.', 'error'); }
+            } catch (err) { Swal.fire('Error', 'Gagal menghubungi database.', 'error'); }
+            finally { btn.innerHTML = 'Simpan Perubahan'; btn.disabled = false; }
         }
 
         window.addEventListener('load', () => setTimeout(loadPublicContent, 800));
