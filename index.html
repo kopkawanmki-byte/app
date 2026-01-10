@@ -4,15 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kawan MKI - Koperasi Karyawan PT Mitra Kiara Indonesia</title>
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome & Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
@@ -36,12 +30,9 @@
     <style>
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .hero-pattern { background-color: #004aad; background-image: url("https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"); background-size: cover; background-blend-mode: multiply; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
+        .hidden-view { display: none !important; }
         .modal-animate { animation: fadeInDown 0.3s ease-out forwards; }
         @keyframes fadeInDown { from { opacity: 0; transform: translate(-50%, -60%); } to { opacity: 1; transform: translate(-50%, -50%); } }
-        
-        /* Utility untuk menyembunyikan halaman */
-        .hidden-view { display: none !important; }
     </style>
 </head>
 <body class="font-sans text-gray-700 bg-gray-50 antialiased">
@@ -50,34 +41,25 @@
     <!-- VIEW: LANDING PAGE (Publik) -->
     <!-- ========================================= -->
     <div id="landing-view">
-        
         <!-- NAVBAR -->
         <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white py-4 shadow-sm">
             <div class="container mx-auto px-6 flex justify-between items-center">
-                <a href="#" class="flex items-center gap-2 group">
-                    <!-- LOGO: Updated with new link -->
-                    <img src="https://ibb.co.com/YvLsxDb" alt="Logo Kawan MKI" class="w-12 h-12 object-contain shadow-sm rounded-full">
+                <a href="#" onclick="switchView('landing')" class="flex items-center gap-2 group">
+                    <img src="https://i.ibb.co.com/2Xk4T85/Capture-1.png" alt="Logo Kawan MKI" class="w-12 h-12 object-contain shadow-sm rounded-full">
                     <div class="flex flex-col">
                         <span class="text-xl font-bold text-brand-dark leading-none">KAWAN MKI</span>
                         <span class="text-xs text-gray-500 font-medium tracking-wider">Koperasi Karyawan</span>
                     </div>
                 </a>
                 <div class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-600">
-                    <a href="#beranda" class="hover:text-brand-blue">Beranda</a>
-                    <a href="#layanan" class="hover:text-brand-blue">Layanan</a>
-                    <a href="#simulasi" class="hover:text-brand-blue">Simulasi</a>
+                    <a href="#beranda" class="hover:text-brand-blue" onclick="switchView('landing')">Beranda</a>
+                    <a href="#layanan" class="hover:text-brand-blue" onclick="switchView('landing')">Layanan</a>
+                    <a href="#pengumuman" class="hover:text-brand-blue" onclick="switchView('landing')">Pengumuman</a>
+                    <a href="#" onclick="switchView('download')" class="text-brand-blue font-bold flex items-center gap-1 transition-transform hover:scale-105"><i class="fas fa-download"></i> Kanal Download</a>
                     <button onclick="toggleModal('loginModal')" class="bg-brand-blue text-white px-5 py-2.5 rounded-full hover:bg-brand-dark transition-all transform hover:scale-105 shadow-md flex items-center gap-2">
-                        <i class="fas fa-sign-in-alt"></i> Login Anggota
+                        <i class="fas fa-sign-in-alt"></i> Login
                     </button>
                 </div>
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden text-gray-600" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')"><i class="fas fa-bars text-2xl"></i></button>
-            </div>
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="hidden md:hidden bg-white border-t mt-4 px-6 py-4 flex flex-col gap-4 shadow-lg">
-                <a href="#beranda">Beranda</a>
-                <a href="#layanan">Layanan</a>
-                <button onclick="toggleModal('loginModal')" class="text-left text-brand-blue font-bold">Login Anggota</button>
             </div>
         </nav>
 
@@ -86,456 +68,431 @@
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
                     <span class="bg-brand-gold text-brand-dark px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Official Portal</span>
-                    <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-                        Portal Digital <br> <span class="text-brand-gold">Anggota Koperasi</span>
-                    </h1>
-                    <p class="text-lg text-gray-200 max-w-lg">
-                        Cek saldo simpanan, ajukan pinjaman, dan pantau SHU Anda secara realtime di sini. Login untuk akses penuh.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <button onclick="switchModal(null, 'registerModal')" class="bg-brand-gold text-brand-dark px-8 py-3 rounded-full font-bold hover:bg-yellow-400 transition shadow-lg text-center">
-                            Daftar Akun Baru
-                        </button>
-                        <button onclick="toggleModal('loginModal')" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-brand-blue transition text-center">
-                            Masuk Member Area
-                        </button>
-                    </div>
-                </div>
-                <!-- Illustration -->
-                <div class="hidden md:block relative">
-                    <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 shadow-2xl">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-12 h-12 rounded-full bg-brand-gold flex items-center justify-center text-brand-dark"><i class="fas fa-wallet text-xl"></i></div>
-                            <div>
-                                <p class="text-xs text-gray-300">Total Simpanan Anggota</p>
-                                <h3 class="text-2xl font-bold">Rp 12.5 Miliar</h3>
-                            </div>
-                        </div>
-                        <div class="h-2 bg-white/20 rounded-full w-full mb-2"><div class="h-full bg-brand-gold rounded-full" style="width: 75%"></div></div>
-                        <p class="text-xs text-gray-300 text-right">Target 2026</p>
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight">Central Digital Hub <br> <span class="text-brand-gold">Anggota Koperasi</span></h1>
+                    <p class="text-lg text-gray-200 max-w-lg">Cek saldo, ajukan pinjaman, dan akses dokumen resmi koperasi secara mudah dan transparan.</p>
+                    <div class="flex gap-4 pt-4">
+                        <button onclick="switchModal(null, 'registerModal')" class="bg-brand-gold text-brand-dark px-8 py-3 rounded-full font-bold hover:bg-yellow-400 shadow-lg transition transform hover:scale-105">Daftar Akun</button>
+                        <button onclick="switchView('download')" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-brand-blue transition">Download Dokumen</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- LAYANAN & SIMULASI (Digabungkan untuk ringkas) -->
-        <section id="layanan" class="py-20 bg-gray-50">
+        <!-- LAYANAN SECTION (KEMBALI DIMUNCULKAN) -->
+        <section id="layanan" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h3 class="text-3xl font-bold text-gray-800">Layanan Koperasi</h3>
                     <div class="w-20 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-brand-blue transition">
-                        <i class="fas fa-money-bill-wave text-4xl text-brand-blue mb-4"></i>
-                        <h4 class="font-bold text-lg mb-2">Simpan Pinjam</h4>
-                        <p class="text-sm text-gray-500">Simpanan aman dengan bunga kompetitif dan pinjaman proses cepat.</p>
+                    <!-- Card 1 -->
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-transparent hover:border-brand-blue transition-all group">
+                        <div class="w-16 h-16 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">Simpan Pinjam</h4>
+                        <p class="text-sm text-gray-500 leading-relaxed">Simpanan aman dengan bagi hasil (nisbah) kompetitif dan fasilitas pinjaman dengan proses cepat.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-brand-blue transition">
-                        <i class="fas fa-shopping-basket text-4xl text-green-500 mb-4"></i>
-                        <h4 class="font-bold text-lg mb-2">Wasera Mart</h4>
-                        <p class="text-sm text-gray-500">Belanja kebutuhan pokok dan elektronik dengan sistem potong gaji.</p>
+                    <!-- Card 2 -->
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-transparent hover:border-brand-blue transition-all group">
+                        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-green-600 group-hover:text-white transition">
+                            <i class="fas fa-shopping-basket"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">Wasera Mart</h4>
+                        <p class="text-sm text-gray-500 leading-relaxed">Belanja berbagai kebutuhan pokok (sembako) dan barang elektronik dengan sistem pembayaran potong gaji.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-brand-blue transition">
-                        <i class="fas fa-hand-holding-heart text-4xl text-red-500 mb-4"></i>
-                        <h4 class="font-bold text-lg mb-2">Dana Sosial</h4>
-                        <p class="text-sm text-gray-500">Santunan untuk anggota yang mengalami musibah atau sukacita.</p>
+                    <!-- Card 3 -->
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-transparent hover:border-brand-blue transition-all group">
+                        <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-orange-600 group-hover:text-white transition">
+                            <i class="fas fa-trowel-bricks"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">Produk Mortar</h4>
+                        <p class="text-sm text-gray-500 leading-relaxed">Penyediaan produk Mortar Indonesia berkualitas dari perusahaan untuk kebutuhan renovasi rumah anggota.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FOOTER -->
+        <!-- PENGUMUMAN SECTION -->
+        <section id="pengumuman" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-gray-800">Informasi & Pengumuman</h3>
+                    <div class="w-20 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
+                </div>
+                <div id="public-announcement-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="col-span-full text-center text-gray-500 py-10"><i class="fas fa-circle-notch fa-spin"></i> Memuat pengumuman...</div>
+                </div>
+            </div>
+        </section>
+
         <footer class="bg-brand-dark text-white py-8 text-center">
-            <p>&copy; 2026 Koperasi Kawan MKI. All rights reserved.</p>
+            <p>&copy; 2026 Koperasi Kawan MKI. All rights reserved. GuoKing_</p>
         </footer>
     </div>
 
     <!-- ========================================= -->
-    <!-- VIEW: MEMBER DASHBOARD (Setelah Login) -->
+    <!-- VIEW: KANAL DOWNLOAD -->
+    <!-- ========================================= -->
+    <div id="download-view" class="hidden-view bg-gray-50 min-h-screen">
+        <nav class="bg-white shadow-sm sticky top-0 z-40">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('landing')">
+                    <i class="fas fa-arrow-left text-brand-blue text-xl"></i>
+                    <h4 class="font-bold text-gray-800">Kembali ke Beranda</h4>
+                </div>
+            </div>
+        </nav>
+        <div class="container mx-auto px-6 py-10">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-brand-dark mb-2"><i class="fas fa-folder-open mr-2 text-brand-gold"></i> Kanal Download</h2>
+                <p class="text-gray-500 mb-8">Unduh dokumen resmi, formulir, dan laporan koperasi di sini.</p>
+                <div class="overflow-hidden bg-white border border-gray-200 rounded-lg">
+                    <ul id="public-download-list" class="divide-y divide-gray-200">
+                        <li class="p-6 text-center text-gray-500"><i class="fas fa-spinner fa-spin"></i> Memuat file...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- VIEW: MEMBER DASHBOARD -->
     <!-- ========================================= -->
     <div id="dashboard-view" class="hidden-view bg-gray-100 min-h-screen">
-        
-        <!-- Dashboard Navbar -->
         <nav class="bg-white shadow-sm sticky top-0 z-40">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-lg">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs text-gray-500">Selamat Datang,</p>
-                        <h4 id="user-name-display" class="font-bold text-gray-800 leading-none">Nama Anggota</h4>
-                    </div>
+                    <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-lg"><i class="fas fa-user"></i></div>
+                    <div><p class="text-xs text-gray-500">Selamat Datang,</p><h4 id="user-name-display" class="font-bold text-gray-800">Member</h4></div>
                 </div>
-                <button onclick="doLogout()" class="text-red-500 hover:bg-red-50 px-4 py-2 rounded-lg font-medium transition text-sm">
-                    <i class="fas fa-sign-out-alt mr-2"></i> Keluar
-                </button>
+                <button onclick="doLogout()" class="text-red-500 hover:bg-red-50 px-4 py-2 rounded-lg font-medium text-sm"><i class="fas fa-sign-out-alt mr-2"></i> Keluar</button>
             </div>
         </nav>
-
         <main class="container mx-auto px-6 py-8">
-            <!-- 1. INFO KARTU -->
             <div class="grid md:grid-cols-3 gap-6 mb-8">
-                <!-- Saldo Simpanan -->
-                <div class="bg-gradient-to-br from-brand-blue to-blue-600 text-white rounded-2xl p-6 shadow-lg relative overflow-hidden">
+                <div class="bg-brand-blue text-white rounded-2xl p-6 shadow-lg relative overflow-hidden transition-transform hover:scale-[1.02]">
                     <div class="absolute right-0 top-0 p-4 opacity-10"><i class="fas fa-wallet text-8xl"></i></div>
                     <p class="text-blue-100 text-sm mb-1">Total Simpanan</p>
                     <h3 id="dash-saldo" class="text-3xl font-bold mb-4">Rp 0</h3>
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-white/20 px-2 py-1 rounded">Pokok</span>
-                        <span class="text-xs bg-white/20 px-2 py-1 rounded">Wajib</span>
-                        <span class="text-xs bg-white/20 px-2 py-1 rounded">Sukarela</span>
-                    </div>
                 </div>
-
-                <!-- Sisa Pinjaman -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-orange-500 relative">
-                    <div class="absolute right-6 top-6 text-orange-200"><i class="fas fa-file-invoice-dollar text-4xl"></i></div>
-                    <p class="text-gray-500 text-sm mb-1">Sisa Pinjaman Aktif</p>
-                    <h3 id="dash-pinjaman" class="text-3xl font-bold text-gray-800 mb-4">Rp 0</h3>
-                    <button class="text-xs text-orange-500 font-bold hover:underline">Lihat Rincian Cicilan &rarr;</button>
-                </div>
-
-                <!-- SHU -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-green-500 relative">
-                    <div class="absolute right-6 top-6 text-green-200"><i class="fas fa-chart-pie text-4xl"></i></div>
-                    <p class="text-gray-500 text-sm mb-1">Estimasi SHU Tahun Ini</p>
-                    <h3 id="dash-shu" class="text-3xl font-bold text-gray-800 mb-4">Rp 0</h3>
-                    <p class="text-xs text-gray-400">*Bisa berubah sesuai RAT</p>
-                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-orange-500"><p class="text-gray-500 text-sm mb-1">Sisa Pinjaman</p><h3 id="dash-pinjaman" class="text-3xl font-bold text-gray-800">Rp 0</h3></div>
+                <div class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-green-500"><p class="text-gray-500 text-sm mb-1">Estimasi SHU</p><h3 id="dash-shu" class="text-3xl font-bold text-gray-800">Rp 0</h3></div>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- 2. MENU CEPAT & PENGAJUAN -->
-                <div class="md:col-span-2 space-y-8">
-                    <!-- Tombol Aksi -->
-                    <div class="bg-white rounded-xl p-6 shadow-sm">
-                        <h4 class="font-bold text-gray-800 mb-4">Menu Cepat</h4>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <button onclick="showLoanForm()" class="flex flex-col items-center gap-2 p-4 rounded-lg bg-gray-50 hover:bg-brand-light hover:text-brand-blue transition group">
-                                <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-brand-blue group-hover:scale-110 transition"><i class="fas fa-hand-holding-usd"></i></div>
-                                <span class="text-sm font-medium">Ajukan Pinjaman</span>
-                            </button>
-                            <button class="flex flex-col items-center gap-2 p-4 rounded-lg bg-gray-50 hover:bg-brand-light hover:text-brand-blue transition group">
-                                <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-green-500 group-hover:scale-110 transition"><i class="fas fa-money-bill-wave"></i></div>
-                                <span class="text-sm font-medium">Tarik Sukarela</span>
-                            </button>
-                            <button class="flex flex-col items-center gap-2 p-4 rounded-lg bg-gray-50 hover:bg-brand-light hover:text-brand-blue transition group">
-                                <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-orange-500 group-hover:scale-110 transition"><i class="fas fa-shopping-cart"></i></div>
-                                <span class="text-sm font-medium">Belanja Wasera</span>
-                            </button>
-                            <button class="flex flex-col items-center gap-2 p-4 rounded-lg bg-gray-50 hover:bg-brand-light hover:text-brand-blue transition group">
-                                <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-purple-500 group-hover:scale-110 transition"><i class="fas fa-user-cog"></i></div>
-                                <span class="text-sm font-medium">Profil Akun</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Form Pengajuan Pinjaman (Hidden by default, shown via JS) -->
-                    <div id="loan-application-panel" class="hidden bg-white rounded-xl p-6 shadow-sm border border-brand-blue">
-                        <div class="flex justify-between items-center mb-4">
-                            <h4 class="font-bold text-brand-blue text-lg"><i class="fas fa-edit mr-2"></i>Form Pengajuan Pinjaman</h4>
-                            <button onclick="hideLoanForm()" class="text-gray-400 hover:text-red-500"><i class="fas fa-times"></i></button>
-                        </div>
-                        <form onsubmit="alert('Pengajuan terkirim! Menunggu approval HRD.'); hideLoanForm(); return false;">
-                            <div class="grid md:grid-cols-2 gap-4 mb-4">
-                                <div>
-                                    <label class="block text-sm font-medium mb-1">Jenis Pinjaman</label>
-                                    <select class="w-full border rounded p-2"><option>Multiguna</option><option>Pendidikan</option><option>Renovasi</option></select>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium mb-1">Nominal (Rp)</label>
-                                    <input type="number" class="w-full border rounded p-2" placeholder="Cth: 5000000">
-                                </div>
-                            </div>
-                            <button class="w-full bg-brand-blue text-white py-2 rounded font-bold hover:bg-brand-dark">Kirim Pengajuan</button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- 3. SIMULASI KECIL (Sidebar) -->
-                <div class="bg-white rounded-xl p-6 shadow-sm h-fit">
-                    <h4 class="font-bold text-gray-800 mb-4 border-b pb-2">Simulasi Cepat</h4>
-                    <div class="space-y-3">
-                        <div>
-                            <label class="text-xs text-gray-500">Nominal Pinjam</label>
-                            <input type="number" id="dash-sim-amount" class="w-full border rounded p-2 text-sm" placeholder="Rp">
-                        </div>
-                        <div>
-                            <label class="text-xs text-gray-500">Tenor</label>
-                            <select id="dash-sim-months" class="w-full border rounded p-2 text-sm">
-                                <option value="6">6 Bulan</option>
-                                <option value="12">12 Bulan</option>
-                                <option value="24">24 Bulan</option>
-                            </select>
-                        </div>
-                        <div class="bg-blue-50 p-3 rounded text-center">
-                            <p class="text-xs text-gray-500">Angsuran/Bulan</p>
-                            <p id="dash-sim-result" class="font-bold text-brand-blue text-lg">Rp 0</p>
-                        </div>
-                        <button onclick="calculateDashSim()" class="w-full bg-gray-800 text-white text-xs py-2 rounded hover:bg-black">Hitung</button>
-                    </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <h4 class="font-bold text-gray-800 mb-4">Akses Cepat Member</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <button onclick="switchView('download')" class="w-full text-left p-4 bg-gray-50 rounded-lg hover:bg-brand-light flex items-center gap-3 transition group">
+                        <div class="w-10 h-10 bg-white rounded shadow-sm flex items-center justify-center text-brand-blue group-hover:scale-110 transition"><i class="fas fa-download"></i></div>
+                        <div><span class="block font-bold">Kanal Download</span><span class="text-xs text-gray-500">Unduh dokumen resmi koperasi</span></div>
+                    </button>
                 </div>
             </div>
         </main>
     </div>
 
-
     <!-- ========================================= -->
-    <!-- MODALS (Login & Register) -->
+    <!-- VIEW: ADMIN DASHBOARD -->
     <!-- ========================================= -->
+    <div id="admin-view" class="hidden-view bg-gray-100 min-h-screen">
+        <nav class="bg-brand-dark text-white shadow-md sticky top-0 z-40">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-brand-gold text-brand-dark rounded-full flex items-center justify-center font-bold text-lg"><i class="fas fa-user-shield"></i></div>
+                    <div><p class="text-xs text-gray-300">Mode Administrator</p><h4 class="font-bold leading-none">Admin Panel</h4></div>
+                </div>
+                <button onclick="doLogout()" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg font-medium text-sm text-white">Keluar</button>
+            </div>
+        </nav>
 
+        <main class="container mx-auto px-6 py-8">
+            <!-- Menu Cepat Admin -->
+            <div class="grid md:grid-cols-4 gap-4 mb-8">
+                <a href="https://s.id/AplikasiSoKawanMKI" target="_blank" class="bg-white p-4 rounded-xl shadow border-l-4 border-brand-blue flex items-center gap-3 hover:shadow-lg transition">
+                    <i class="fas fa-file-contract text-2xl text-brand-blue"></i><div><h4 class="font-bold text-sm">Surat Order</h4></div>
+                </a>
+                <a href="https://s.id/APlikasiInvoiceKawanMKI" target="_blank" class="bg-white p-4 rounded-xl shadow border-l-4 border-brand-gold flex items-center gap-3 hover:shadow-lg transition">
+                    <i class="fas fa-file-invoice text-2xl text-orange-600"></i><div><h4 class="font-bold text-sm">Invoice</h4></div>
+                </a>
+                <button onclick="showAdminTab('upload')" class="bg-white p-4 rounded-xl shadow border-l-4 border-green-600 flex items-center gap-3 hover:shadow-lg transition">
+                    <i class="fas fa-cloud-upload-alt text-2xl text-green-600"></i><div><h4 class="font-bold text-sm">Upload & Info</h4></div>
+                </button>
+                <button onclick="showAdminTab('members')" class="bg-white p-4 rounded-xl shadow border-l-4 border-purple-600 flex items-center gap-3 hover:shadow-lg transition">
+                    <i class="fas fa-users-cog text-2xl text-purple-600"></i><div><h4 class="font-bold text-sm">Data Anggota</h4></div>
+                </button>
+            </div>
+
+            <!-- TAB: DATA ANGGOTA -->
+            <div id="admin-tab-members" class="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div class="p-6 border-b flex justify-between items-center">
+                    <h3 class="font-bold text-gray-800"><i class="fas fa-users mr-2"></i>Manajemen Saldo Anggota</h3>
+                    <div class="flex gap-2">
+                        <input type="text" id="admin-search" onkeyup="filterMembers()" placeholder="Cari Nama/NIK..." class="border rounded px-3 py-1 text-sm outline-none focus:border-brand-blue">
+                        <button onclick="loadAllMembers()" class="text-brand-blue hover:scale-110 transition"><i class="fas fa-sync"></i></button>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="bg-gray-50 text-gray-700 uppercase text-xs">
+                            <tr><th class="px-6 py-3">Nama / NIK</th><th class="px-6 py-3 text-right">Saldo</th><th class="px-6 py-3 text-right">Pinjaman</th><th class="px-6 py-3 text-right">SHU</th><th class="px-6 py-3 text-center">Aksi</th></tr>
+                        </thead>
+                        <tbody id="admin-members-table">
+                            <tr><td colspan="5" class="text-center py-4">Memuat data...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB: UPLOAD & PENGUMUMAN -->
+            <div id="admin-tab-upload" class="hidden grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h3 class="font-bold text-gray-800 mb-4 border-b pb-2"><i class="fas fa-file-pdf mr-2 text-red-500"></i>Upload PDF</h3>
+                    <form onsubmit="submitUploadFile(event)" class="space-y-4">
+                        <input type="text" name="filename" required placeholder="Judul File" class="w-full border rounded p-2 text-sm">
+                        <input type="text" name="description" placeholder="Deskripsi Singkat" class="w-full border rounded p-2 text-sm">
+                        <input type="file" id="file-upload-input" accept="application/pdf" required class="w-full text-sm">
+                        <button type="submit" id="btn-upload" class="w-full bg-brand-blue text-white py-2 rounded font-bold">Mulai Upload</button>
+                    </form>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h3 class="font-bold text-gray-800 mb-4 border-b pb-2"><i class="fas fa-bullhorn mr-2 text-brand-gold"></i>Buat Pengumuman</h3>
+                    <form onsubmit="submitAnnouncement(event)" class="space-y-4">
+                        <input type="text" name="judul" required placeholder="Judul Informasi" class="w-full border rounded p-2 text-sm">
+                        <textarea name="isi" required rows="4" placeholder="Isi pesan informasi..." class="w-full border rounded p-2 text-sm"></textarea>
+                        <button type="submit" id="btn-announce" class="w-full bg-green-600 text-white py-2 rounded font-bold transition hover:bg-green-700">Terbitkan</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODALS -->
     <!-- LOGIN MODAL -->
     <div id="loginModal" class="fixed inset-0 z-[100] hidden">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="toggleModal('loginModal')"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-full max-w-md rounded-2xl shadow-2xl p-8 modal-animate">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold text-brand-dark">Login Anggota</h3>
-                <button onclick="toggleModal('loginModal')" class="text-gray-400 hover:text-red-500 text-xl"><i class="fas fa-times"></i></button>
-            </div>
-            
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleModal('loginModal')"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-full max-w-md rounded-2xl p-8 modal-animate shadow-2xl">
+            <h3 class="text-2xl font-bold mb-6 text-brand-dark">Login Portal</h3>
             <form id="loginForm" onsubmit="submitLogin(event)" class="space-y-4">
-                <input type="hidden" name="action" value="login">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">NIK (Username)</label>
-                    <div class="relative">
-                        <i class="fas fa-id-card absolute left-3 top-3.5 text-gray-400"></i>
-                        <input type="text" name="nik" required class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue outline-none" placeholder="Nomor Induk Karyawan">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                    <div class="relative">
-                        <i class="fas fa-lock absolute left-3 top-3.5 text-gray-400"></i>
-                        <input type="password" name="password" required class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue outline-none" placeholder="********">
-                    </div>
-                </div>
-                <button type="submit" id="btn-login" class="w-full bg-brand-blue text-white font-bold py-3 rounded-lg hover:bg-brand-dark transition shadow-lg">
-                    Masuk Dashboard
-                </button>
+                <input type="text" name="nik" placeholder="NIK atau 'admin'" class="w-full border rounded p-3 outline-none focus:border-brand-blue" required>
+                <input type="password" name="password" placeholder="Password" class="w-full border rounded p-3 outline-none focus:border-brand-blue" required>
+                <button id="btn-login" class="w-full bg-brand-blue text-white font-bold p-3 rounded shadow-lg hover:bg-brand-dark transition">Masuk Sekarang</button>
             </form>
-            
-            <div class="mt-6 text-center text-sm text-gray-500">
-                Belum punya akun? <a href="#" onclick="switchModal('loginModal', 'registerModal')" class="text-brand-blue font-bold">Daftar Sekarang</a>
-            </div>
+            <div class="mt-6 text-center text-sm text-gray-500">Belum punya akun? <a href="#" onclick="switchModal('loginModal', 'registerModal')" class="text-brand-blue font-bold">Daftar Sekarang</a></div>
         </div>
     </div>
 
     <!-- REGISTER MODAL -->
     <div id="registerModal" class="fixed inset-0 z-[100] hidden">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="toggleModal('registerModal')"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-full max-w-lg rounded-2xl shadow-2xl p-8 modal-animate overflow-y-auto max-h-[90vh]">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold text-brand-dark">Pendaftaran Anggota</h3>
-                <button onclick="toggleModal('registerModal')" class="text-gray-400 hover:text-red-500 text-xl"><i class="fas fa-times"></i></button>
-            </div>
-            
-            <form id="registerForm" onsubmit="submitRegister(event)" class="space-y-4">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleModal('registerModal')"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-full max-w-lg rounded-2xl p-8 modal-animate overflow-y-auto max-h-[90vh] shadow-2xl">
+            <h3 class="text-2xl font-bold mb-6 text-brand-dark text-center">Pendaftaran Anggota</h3>
+            <form id="registerForm" onsubmit="submitRegister(event)" class="space-y-3">
                 <input type="hidden" name="action" value="register">
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="col-span-2">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-                        <input type="text" name="nama" required class="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:border-brand-blue" placeholder="Sesuai KTP">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">NIK (Username)</label>
-                        <input type="number" name="nik" required class="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:border-brand-blue" placeholder="Cth: 2021001">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Unit Kerja</label>
-                        <input type="text" name="unit" required class="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:border-brand-blue" placeholder="Divisi">
-                    </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="col-span-2"><input type="text" name="nama" placeholder="Nama Lengkap" class="w-full border p-2 rounded outline-none focus:border-brand-blue" required></div>
+                    <input type="number" name="nik" placeholder="NIK Karyawan" class="w-full border p-2 rounded outline-none focus:border-brand-blue" required>
+                    <input type="text" name="unit" placeholder="Unit Kerja" class="w-full border p-2 rounded outline-none focus:border-brand-blue" required>
+                    <input type="tel" name="telepon" placeholder="Nomor WhatsApp" class="w-full border p-2 rounded outline-none focus:border-brand-blue" required>
+                    <input type="email" name="email" placeholder="Email" class="w-full border p-2 rounded outline-none focus:border-brand-blue" required>
                 </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">No WhatsApp</label>
-                    <input type="tel" name="telepon" required class="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:border-brand-blue" placeholder="0812...">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:border-brand-blue" placeholder="email@kantor.co.id">
-                </div>
-                
-                <!-- PASSWORD FIELD BARU -->
-                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                    <label class="block text-sm font-bold text-brand-blue mb-1">Buat Password</label>
-                    <input type="password" name="password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Minimal 6 karakter">
-                    <p class="text-[10px] text-gray-500 mt-1">Gunakan password yang kuat untuk keamanan data keuangan.</p>
-                </div>
-
-                <button type="submit" id="btn-register" class="w-full bg-brand-gold text-brand-dark font-bold py-3 rounded-lg hover:bg-yellow-400 transition shadow-lg flex justify-center items-center gap-2">
-                    Kirim Pendaftaran
-                </button>
+                <input type="password" name="password" placeholder="Buat Password" class="w-full border p-2 rounded bg-blue-50 outline-none focus:border-brand-blue" required>
+                <button id="btn-register" class="w-full bg-brand-gold font-bold p-3 rounded shadow-md mt-4 hover:bg-yellow-500 transition">Kirim Data Pendaftaran</button>
             </form>
-            <div class="mt-4 text-center text-sm">Sudah punya akun? <a href="#" onclick="switchModal('registerModal', 'loginModal')" class="text-brand-blue font-bold">Login</a></div>
+            <div class="mt-4 text-center text-sm">Sudah terdaftar? <a href="#" onclick="switchModal('registerModal', 'loginModal')" class="text-brand-blue font-bold">Login</a></div>
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- UPDATE MEMBER MODAL (ADMIN ONLY) -->
+    <div id="editMemberModal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleModal('editMemberModal')"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-full max-w-md rounded-2xl p-8 modal-animate shadow-2xl">
+            <h3 class="text-xl font-bold mb-4">Update Saldo Anggota</h3>
+            <form id="editMemberForm" onsubmit="submitUpdateMember(event)" class="space-y-4">
+                <input type="hidden" name="action" value="update_member">
+                <input type="hidden" name="target_nik" id="edit-nik">
+                <div class="bg-gray-100 p-3 rounded font-bold" id="edit-nama-display">-</div>
+                <div><label class="text-xs text-gray-500">Saldo Simpanan (Rp)</label><input type="number" id="edit-saldo" name="new_saldo" class="w-full border rounded p-2 outline-none focus:border-brand-blue"></div>
+                <div><label class="text-xs text-gray-500">Pinjaman (Rp)</label><input type="number" id="edit-pinjaman" name="new_pinjaman" class="w-full border rounded p-2 outline-none focus:border-brand-blue"></div>
+                <div><label class="text-xs text-gray-500">SHU (Rp)</label><input type="number" id="edit-shu" name="new_shu" class="w-full border rounded p-2 outline-none focus:border-brand-blue"></div>
+                <button id="btn-update-member" class="w-full bg-brand-blue text-white font-bold p-3 rounded hover:bg-brand-dark transition">Simpan Perubahan</button>
+            </form>
+        </div>
+    </div>
+
     <script>
         // ==========================================
-        // KONFIGURASI SCRIPT URL TERBARU
+        // URL SCRIPT DEPLOYMENT TERBARU
         // ==========================================
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKSwSOTRcesiR4YFrUiNmG8-VzXTx50gqrRArbTV60LTHHP5pIJhYpnC_rEsV5lBSC/exec"; 
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzOsFJH6BsletXntHuri2SvMfk5Lcx3c1alGCeO_FD_QwwflTChiMKipo-m3NfJg6zU/exec"; 
 
-        // --- View Switching ---
-        function switchView(viewName) {
-            const landing = document.getElementById('landing-view');
-            const dashboard = document.getElementById('dashboard-view');
-            
-            if (viewName === 'dashboard') {
-                landing.classList.add('hidden-view');
-                dashboard.classList.remove('hidden-view');
-                window.scrollTo(0, 0);
-            } else {
-                landing.classList.remove('hidden-view');
-                dashboard.classList.add('hidden-view');
-            }
+        // State Global
+        let allMembersData = [];
+        const formatIDR = (n) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(n);
+        function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); }
+        function switchModal(close, open) { if(close) toggleModal(close); setTimeout(() => toggleModal(open), 200); }
+
+        function switchView(view) {
+            ['landing-view', 'dashboard-view', 'admin-view', 'download-view'].forEach(id => document.getElementById(id).classList.add('hidden-view'));
+            const target = document.getElementById(view + '-view');
+            if(target) target.classList.remove('hidden-view');
+            window.scrollTo(0, 0);
+            if (view === 'landing' || view === 'download') loadPublicContent();
+        }
+
+        function showAdminTab(tab) {
+            document.getElementById('admin-tab-members').classList.add('hidden');
+            document.getElementById('admin-tab-upload').classList.add('hidden');
+            document.getElementById('admin-tab-' + tab).classList.remove('hidden');
         }
 
         function doLogout() {
-            Swal.fire({
-                title: 'Keluar?',
-                text: "Anda harus login ulang untuk mengakses data.",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                confirmButtonText: 'Ya, Keluar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    switchView('landing');
-                    document.getElementById('loginForm').reset();
+            Swal.fire({ title: 'Keluar?', icon: 'warning', showCancelButton: true, confirmButtonText: 'Ya, Keluar' }).then((r) => { 
+                if(r.isConfirmed) { switchView('landing'); document.getElementById('loginForm').reset(); } 
+            }); 
+        }
+
+        // --- FETCH CONTENT (DOWNLOADS & ANNOUNCEMENTS) ---
+        function loadPublicContent() {
+            const data = new URLSearchParams(); data.append('action', 'get_content');
+            fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
+                if(res.result === 'success') {
+                    // Render Announcements
+                    const annList = document.getElementById('public-announcement-list');
+                    annList.innerHTML = res.announcements.length ? res.announcements.map(a => `
+                        <div class="bg-white p-6 rounded-xl shadow border-l-4 border-brand-gold hover:shadow-lg transition">
+                            <span class="text-xs text-gray-400">${new Date(a.date).toLocaleDateString()}</span>
+                            <h4 class="font-bold text-lg text-brand-dark mt-1">${a.title}</h4>
+                            <p class="text-sm text-gray-600 mt-2 line-clamp-3">${a.content}</p>
+                        </div>
+                    `).join('') : '<div class="col-span-full text-center text-gray-400">Belum ada pengumuman.</div>';
+
+                    // Render Downloads
+                    const downList = document.getElementById('public-download-list');
+                    downList.innerHTML = res.downloads.length ? res.downloads.map(d => `
+                        <li class="flex items-center justify-between p-5 hover:bg-gray-50 transition text-left">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-red-100 text-red-600 p-3 rounded"><i class="fas fa-file-pdf text-xl"></i></div>
+                                <div><h5 class="font-bold text-gray-800 text-sm md:text-base">${d.name}</h5><p class="text-xs text-gray-500">${d.desc}</p></div>
+                            </div>
+                            <a href="${d.link}" target="_blank" class="bg-brand-blue text-white px-4 py-2 rounded-lg text-xs md:text-sm font-bold shadow hover:bg-brand-dark transition"><i class="fas fa-download mr-1"></i> Unduh</a>
+                        </li>
+                    `).join('') : '<li class="p-6 text-center text-gray-400">Belum ada file dokumen.</li>';
                 }
-            })
-        }
-
-        // --- Modals ---
-        function toggleModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.toggle('hidden');
-            document.body.style.overflow = modal.classList.contains('hidden') ? 'auto' : 'hidden';
-        }
-        function switchModal(closeId, openId) {
-            if(closeId) toggleModal(closeId);
-            setTimeout(() => toggleModal(openId), 200);
-        }
-
-        // --- Format Currency ---
-        const formatIDR = (num) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(num);
-
-        // --- LOGIC REGISTER ---
-        function submitRegister(e) {
-            e.preventDefault();
-            const btn = document.getElementById('btn-register');
-            const form = document.getElementById('registerForm');
-            
-            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Memproses...';
-            btn.disabled = true;
-
-            // Karena kita mengirim parameter action='register', kita gunakan FormData
-            // Tapi fetch GAS agak tricky dengan CORS untuk membaca response jika pakai FormData langsung kadang-kadang
-            // Kita coba pakai URLSearchParams untuk kejelasan data
-            const formData = new FormData(form);
-            const data = new URLSearchParams();
-            for (const pair of formData) data.append(pair[0], pair[1]);
-
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                body: data
-            })
-            .then(res => res.json())
-            .then(response => {
-                if (response.result === 'success') {
-                    toggleModal('registerModal');
-                    Swal.fire('Berhasil!', 'Akun berhasil dibuat. Silakan Login.', 'success');
-                    form.reset();
-                    switchModal(null, 'loginModal');
-                } else {
-                    throw new Error(response.message || 'Gagal Register');
-                }
-            })
-            .catch(error => {
-                // Fallback jika CORS memblokir JSON response (biasa terjadi di GAS 'no-cors' mode, tapi code diatas pakai ContentService JSON)
-                // Jika pakai code GAS terbaru saya, harusnya JSON terbaca. 
-                // Jika error parsing, kita asumsikan sukses (blind submit) atau error network.
-                console.error(error);
-                Swal.fire('Info', 'Pendaftaran terkirim! Jika tidak ada error, silakan coba login.', 'info');
-                toggleModal('registerModal');
-            })
-            .finally(() => {
-                btn.innerHTML = 'Kirim Pendaftaran';
-                btn.disabled = false;
             });
         }
 
-        // --- LOGIC LOGIN ---
+        // --- UPLOAD & ANNOUNCEMENT SUBMIT ---
+        function submitUploadFile(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-upload');
+            const file = document.getElementById('file-upload-input').files[0];
+            if (!file) return;
+
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sedang Upload...'; btn.disabled = true;
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+                const data = new URLSearchParams(new FormData(e.target));
+                data.append('action', 'upload_file');
+                data.append('filedata', reader.result);
+                fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
+                    if(res.result === 'success') { Swal.fire('Sukses', 'Dokumen berhasil dipublikasikan', 'success'); e.target.reset(); loadPublicContent(); }
+                }).finally(() => { btn.innerHTML = 'Mulai Upload'; btn.disabled = false; });
+            };
+        }
+
+        function submitAnnouncement(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-announce');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...'; btn.disabled = true;
+            const data = new URLSearchParams(new FormData(e.target));
+            data.append('action', 'post_announcement');
+            fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
+                if(res.result === 'success') { Swal.fire('Terkirim', 'Informasi telah diterbitkan', 'success'); e.target.reset(); loadPublicContent(); }
+            }).finally(() => { btn.innerHTML = 'Terbitkan'; btn.disabled = false; });
+        }
+
+        // --- LOGIN & MEMBER MANAGEMENT ---
         function submitLogin(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-login');
-            const form = document.getElementById('loginForm');
-            
-            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Mengecek...';
-            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Masuk...'; btn.disabled = true;
+            const data = new URLSearchParams(new FormData(e.target));
+            data.append('action', 'login');
 
-            const formData = new FormData(form);
-            const data = new URLSearchParams();
-            for (const pair of formData) data.append(pair[0], pair[1]);
-
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                body: data
-            })
-            .then(res => res.json())
-            .then(response => {
-                if (response.result === 'success') {
-                    // LOGIN SUKSES
-                    const userData = response.data;
-                    
-                    // Populate Dashboard
-                    document.getElementById('user-name-display').innerText = userData.nama;
-                    document.getElementById('dash-saldo').innerText = formatIDR(userData.saldo);
-                    document.getElementById('dash-pinjaman').innerText = formatIDR(userData.pinjaman);
-                    document.getElementById('dash-shu').innerText = formatIDR(userData.shu);
-
+            fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
+                if (res.result === 'success') {
                     toggleModal('loginModal');
-                    
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Login Berhasil',
-                        text: `Selamat datang kembali, ${userData.nama}`,
-                        timer: 1500,
-                        showConfirmButton: false
-                    }).then(() => {
+                    if (res.role === 'admin') { switchView('admin'); loadAllMembers(); } 
+                    else {
+                        const u = res.data;
+                        document.getElementById('user-name-display').innerText = u.nama;
+                        document.getElementById('dash-saldo').innerText = formatIDR(u.saldo);
+                        document.getElementById('dash-pinjaman').innerText = formatIDR(u.pinjaman);
+                        document.getElementById('dash-shu').innerText = formatIDR(u.shu);
                         switchView('dashboard');
-                    });
-                } else {
-                    Swal.fire('Gagal', 'NIK atau Password salah!', 'error');
-                }
-            })
-            .catch(error => {
-                console.error(error);
-                Swal.fire('Error', 'Terjadi kesalahan koneksi ke server.', 'error');
-            })
-            .finally(() => {
-                btn.innerHTML = 'Masuk Dashboard';
-                btn.disabled = false;
+                    }
+                } else { Swal.fire('Gagal', res.message, 'error'); }
+            }).finally(() => { btn.innerHTML = 'Masuk Sekarang'; btn.disabled = false; });
+        }
+
+        function submitRegister(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-register');
+            btn.innerHTML = 'Mengirim...'; btn.disabled = true;
+            const data = new URLSearchParams(new FormData(e.target));
+            data.append('action', 'register');
+            fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
+                toggleModal('registerModal'); Swal.fire('Berhasil', 'Pendaftaran sukses! Silakan login.', 'success');
+            }).finally(() => { btn.innerHTML = 'Kirim Data Pendaftaran'; btn.disabled = false; });
+        }
+
+        function loadAllMembers() {
+            const data = new URLSearchParams(); data.append('action', 'get_all_members');
+            fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
+                if(res.result === 'success') { allMembersData = res.data; renderMembersTable(allMembersData); }
             });
         }
 
-        // --- Dashboard Logic ---
-        function showLoanForm() {
-            document.getElementById('loan-application-panel').classList.remove('hidden');
+        function renderMembersTable(members) {
+            const tbody = document.getElementById('admin-members-table');
+            tbody.innerHTML = members.map(m => `
+                <tr class="border-b hover:bg-gray-50 text-xs md:text-sm">
+                    <td class="px-4 md:px-6 py-4"><b>${m.nama}</b><br><span class="text-xs text-gray-500">${m.nik}</span></td>
+                    <td class="px-4 md:px-6 py-4 text-right font-bold text-blue-600">${formatIDR(m.saldo)}</td>
+                    <td class="px-4 md:px-6 py-4 text-right text-orange-600">${formatIDR(m.pinjaman)}</td>
+                    <td class="px-4 md:px-6 py-4 text-right text-green-600">${formatIDR(m.shu)}</td>
+                    <td class="px-4 md:px-6 py-4 text-center"><button onclick='openEditModal(${JSON.stringify(m)})' class="text-brand-blue hover:underline font-bold">Edit</button></td>
+                </tr>
+            `).join('');
         }
-        function hideLoanForm() {
-            document.getElementById('loan-application-panel').classList.add('hidden');
+
+        function filterMembers() {
+            const q = document.getElementById('admin-search').value.toLowerCase();
+            renderMembersTable(allMembersData.filter(m => m.nama.toLowerCase().includes(q) || m.nik.toString().includes(q)));
         }
-        function calculateDashSim() {
-            const amount = document.getElementById('dash-sim-amount').value;
-            const months = document.getElementById('dash-sim-months').value;
-            if(!amount) return;
-            const res = (parseFloat(amount) + (parseFloat(amount) * 0.01 * parseInt(months))) / parseInt(months);
-            document.getElementById('dash-sim-result').innerText = formatIDR(res);
+
+        function openEditModal(m) {
+            document.getElementById('edit-nik').value = m.nik;
+            document.getElementById('edit-nama-display').innerText = m.nama;
+            document.getElementById('edit-saldo').value = m.saldo;
+            document.getElementById('edit-pinjaman').value = m.pinjaman;
+            document.getElementById('edit-shu').value = m.shu;
+            toggleModal('editMemberModal');
         }
+
+        function submitUpdateMember(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-update-member'); btn.innerHTML = 'Menyimpan...'; btn.disabled = true;
+            const data = new URLSearchParams(new FormData(e.target));
+            fetch(SCRIPT_URL, { method: 'POST', body: data }).then(r=>r.json()).then(res => {
+                if(res.result === 'success') { toggleModal('editMemberModal'); Swal.fire('Sukses', 'Data berhasil diperbarui', 'success'); loadAllMembers(); }
+            }).finally(() => { btn.innerHTML = 'Simpan Perubahan'; btn.disabled = false; });
+        }
+
+        // Initialize
+        loadPublicContent();
     </script>
 </body>
 </html>
