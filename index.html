@@ -77,7 +77,8 @@
                 </div>
 
                 <!-- MOBILE MENU DROPDOWN -->
-                <div id="mobile-menu" class="md:hidden flex flex-col gap-3 font-medium text-gray-600 bg-white">
+                <!-- Perbaikan: Ditambahkan class 'hidden' di awal agar konsisten -->
+                <div id="mobile-menu" class="hidden md:hidden flex flex-col gap-3 font-medium text-gray-600 bg-white">
                     <a href="#beranda" class="hover:text-brand-blue py-2 block border-b border-gray-50" onclick="closeMobileMenu(); switchView('landing')">Beranda</a>
                     <a href="https://kopkawanmki-byte.github.io/Pendaftaran/" class="hover:text-brand-blue py-2 block border-b border-gray-50" target="_blank">Pendaftaran Anggota Baru</a>
                     <a href="#layanan" class="hover:text-brand-blue py-2 block border-b border-gray-50" onclick="closeMobileMenu(); switchView('landing')">Layanan</a>
@@ -368,21 +369,37 @@
         function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); }
         function switchModal(close, open) { if(close) toggleModal(close); setTimeout(() => toggleModal(open), 200); }
 
-        // --- NEW: MOBILE MENU FUNCTIONS ---
+        // --- NEW: MOBILE MENU FUNCTIONS (REVISED) ---
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-            setTimeout(() => {
-                menu.classList.toggle('open');
-            }, 10);
+            
+            // Check if hidden class is present (Closed state)
+            if (menu.classList.contains('hidden')) {
+                // OPENING
+                menu.classList.remove('hidden');
+                // Small delay to ensure display:block applies before transition starts
+                setTimeout(() => {
+                    menu.classList.add('open');
+                }, 10);
+            } else {
+                // CLOSING
+                menu.classList.remove('open');
+                // Wait for transition to finish before hiding
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                }, 300); // 300ms matches CSS transition time
+            }
         }
 
         function closeMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.remove('open');
-            setTimeout(() => {
-                menu.classList.add('hidden');
-            }, 300);
+            // Only close if it's actually open
+            if (!menu.classList.contains('hidden')) {
+                menu.classList.remove('open');
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                }, 300);
+            }
         }
 
         function switchView(view) {
